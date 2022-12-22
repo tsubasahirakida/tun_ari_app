@@ -102,7 +102,7 @@ MVP後に実装したい機能
 いつかは自分の言葉で、素直な気持ちが伝えられたらいいですね！  
 ぜひこのアプリで、感謝の言葉を伝える練習をしてみて下さい！  
 
-[画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
+■[画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
 
 ■スケジュール  
 README〜ER図作成：12/25 〆切  
