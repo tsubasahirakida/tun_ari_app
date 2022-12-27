@@ -69,6 +69,7 @@ GEM
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
@@ -92,14 +93,20 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    diffy (3.4.2)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.7.2)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -111,6 +118,7 @@ GEM
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.3)
+    jwt (2.6.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -125,6 +133,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
+    multi_xml (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -137,6 +146,16 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
+    oauth (0.6.2)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
+    oauth2 (2.0.9)
+      faraday (>= 0.17.3, < 3.0)
+      jwt (>= 1.0, < 3.0)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 4)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
     parallel (1.22.1)
     parser (3.1.3.0)
       ast (~> 2.4.1)
@@ -185,6 +204,9 @@ GEM
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
+    ridgepole (1.2.0)
+      activerecord (>= 5.1, < 7.1)
+      diffy
     rspec-core (3.12.0)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.1)
@@ -224,6 +246,14 @@ GEM
     rubocop-rspec (2.16.0)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
+    snaky_hash (2.0.1)
+      hashie
+      version_gem (~> 1.1, >= 1.1.1)
+    sorcery (0.16.4)
+      bcrypt (~> 3.1)
+      oauth (~> 0.5, >= 0.5.5)
+      oauth2 (~> 2.0)
     spring (4.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -245,6 +275,7 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.3.0)
+    version_gem (1.1.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -272,11 +303,13 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
+  ridgepole
   rspec-rails
   rubocop
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  sorcery
   spring-commands-rspec
   sprockets-rails
   stimulus-rails
