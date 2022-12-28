@@ -1,17 +1,10 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
-
-  <p>
-    <strong>Picture:</strong>
-    <%= post.picture %>
-  </p>
-
-  <p>
-    <strong>Kind:</strong>
-    <%= post.kind %>
-  </p>
-
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="board-id-<%= post.id %>">
+    <%= image_tag post.post_image_url, class: 'card-img-top', size: '600x400' %>
+    <div class="card">
+        <p class="card-text"><%= post.sendername %></p>
+        <p class="card-text"><%= post.body %></p>
+      </div>
+    </div>
+  </div>
 </div>
