@@ -9,9 +9,10 @@ create_table "users", force: :cascade do |t|
 end
 
 create_table "posts", force: :cascade do |t|
-  t.text :content
-  t.string :picture
-  t.string :kind
+  t.string :sendername, null: false
+  t.string :body, null: false
+  t.string :post_image, null: false
+  t.integer :charator_id
 
   t.datetime "updated_at", null: false
   t.datetime "created_at", null: false
