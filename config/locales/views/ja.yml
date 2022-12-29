@@ -1,0 +1,28 @@
+ja:
+  defaults:
+    message:
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
+      not_authorized: '権限がありません'
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    post: '投稿'
+    search_word: '検索ワード'
+    edit: '編集'
+    password_reset: 'パスワードリセット'
+    unspecified: '指定なし'
+    show: '詳細'
+    delete: '削除'
+  posts:
+    new:
+      draft: '下書き'
+      private: '非公開'
+      public: '公開'
+
+
