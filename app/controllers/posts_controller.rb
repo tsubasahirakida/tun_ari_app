@@ -20,6 +20,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    if params[:commit] == "下書きにする"
+      @post.status = 0
+    elsif params[:commit] == "非公開にする"
+      @post.status = 1
+    elsif params[:commit] == "公開する"
+      @post.status = 2
+    else
+      render :new, notice: "statusを選んでください", status: :unprocessable_entity
+    end
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
       redirect_to post_path(@post), notice: "Post was successfully created."
