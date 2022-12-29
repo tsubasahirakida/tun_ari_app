@@ -1,7 +1,8 @@
-<%= form_with model: post, local: true do |f| %>
+<%= form_with model: @post, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= image_tag "#{post.charator_id}", size: '300x200'  %>
+    <%= image_tag "#{post.character_id}.png", size: '300x200'  %>
+    <%= f.hidden_field :character_id, value: "#{post.character_id}" %>
     <%= f.label :sendername %>
     <%= f.text_field :sendername, class: 'form-control' %>
   </div>
