@@ -8,8 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.charator_id = params[:charator_id]
-    binding.pry
+    @post.character_id = params[:character_id]
   end
 
   def show
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.post_image = ThumbnailCreator.build(@post.body)
+    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
       redirect_to post_path(@post), notice: "Post was successfully created."
     else
@@ -42,7 +41,7 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: "Post was successfully destroyed."
   end
 
-  def charactor_set
+  def character_set
   end
 
   private
@@ -51,6 +50,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:charator_id, :sendername, :body)
+      params.require(:post).permit(:character_id, :sendername, :body)
     end
 end
