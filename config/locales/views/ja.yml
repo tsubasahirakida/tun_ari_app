@@ -19,10 +19,86 @@ ja:
     unspecified: '指定なし'
     show: '詳細'
     delete: '削除'
-  posts:
+  users:
     new:
-      draft: '下書き'
-      private: '非公開'
-      public: '公開'
-
-
+      title: 'ユーザー登録'
+      to_login_page: 'ログインページへ'
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: '登録ページへ'
+      password_forget: 'パスワードをお忘れの方はこちら'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  posts:
+    index:
+      title: '掲示板一覧'
+      form: '検索フォーム'
+      no_result: '掲示板がありません'
+    new:
+      title: '掲示板作成'
+    show:
+      title: '掲示板詳細'
+    edit:
+      title: '掲示板編集'
+    bookmarks:
+      title: 'ブックマーク一覧'
+      no_result: 'ブックマーク中の掲示板がありません。'
+  bookmarks:
+    create:
+      success: 'ブックマークしました'
+    destroy:
+      success: 'ブックマークを外しました'
+  profiles:
+    show:
+      title: 'プロフィール'
+    edit:
+      title: 'プロフィール編集'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
+  admin:
+    user_sessions:
+      new:
+        title: 'ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'
+    dashboards:
+      index:
+        title: 'ダッシュボード'
+    users:
+      index:
+        title: 'ユーザー一覧'
+      show:
+        title: 'ユーザー詳細'
+      edit:
+        title: 'ユーザー編集'
+      update:
+        success: 'ユーザーを編集しました'
+        fail: 'ユーザーを編集できませんでした'
+      destroy:
+        success: 'ユーザーを削除しました'
+    posts:
+      index:
+        title: '掲示板一覧'
+      show:
+        title: '掲示板詳細'
+      edit:
+        title: '掲示板編集'
