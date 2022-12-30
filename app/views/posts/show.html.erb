@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="board-id-<%= @post.id %>">
     <%= image_tag @post.post_image_url, class: 'card-img-top', size: '600x400' %>

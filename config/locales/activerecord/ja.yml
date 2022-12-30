@@ -21,7 +21,8 @@ ja:
         created_at: '作成日時'
       post:
         title: 'タイトル'
-        body: '本文'
+        sendername: '誰に書く？'
+        body: '文章'
         board_image: 'サムネイル'
         full_name: '氏名'
         id: 'ID'
