@@ -43,6 +43,8 @@ ja:
       no_result: '掲示板がありません'
     new:
       title: '掲示板作成'
+    create:
+      success: '投稿できたよ♡'
     show:
       title: '掲示板詳細'
     edit:

@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     end
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
-      redirect_to post_path(@post), notice: "Post was successfully created."
+      redirect_to post_path(@post), success: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
