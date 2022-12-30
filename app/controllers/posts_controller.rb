@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.character_id = params[:character_id]
+    @post.body ||= params[:tempalate_body]
   end
 
   def show
@@ -51,6 +52,12 @@ class PostsController < ApplicationController
   end
 
   def character_set
+  end
+
+  def template_set
+    @templates = PostBodyTemplate.all
+    @post = Post.find_or_initialize_by(id: params[:id])
+    @post.assign_attributes(post_params)
   end
 
   private

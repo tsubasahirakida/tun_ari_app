@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'character_set'
+      get 'template_set'
     end
   end
 end
