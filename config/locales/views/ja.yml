@@ -38,17 +38,19 @@ ja:
       success: 'ログアウトしました'
   posts:
     index:
-      title: '掲示板一覧'
+      title: '投稿一覧'
       form: '検索フォーム'
       no_result: '掲示板がありません'
+    character_set:
+      title: 'キャラクター選択'
     new:
-      title: '掲示板作成'
+      title: '投稿作成'
     create:
       success: '投稿できたよ♡'
     show:
-      title: '掲示板詳細'
+      title: '投稿詳細'
     edit:
-      title: '掲示板編集'
+      title: '投稿編集'
     bookmarks:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の掲示板がありません。'
