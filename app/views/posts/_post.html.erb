@@ -4,6 +4,21 @@
     <div class="card">
         <p class="card-text"><%= post.sendername %></p>
         <p class="card-text"><%= post.body %></p>
+        <% if current_user.ai?(post) %>
+          <%= render 'actions/unai', { post: post } %>
+        <% else %>
+          <%= render 'actions/ai', { post: post } %>
+        <% end %>
+        <% if current_user.tun?(post) %>
+          <%= render 'actions/untun', { post: post } %>
+        <% else %>
+          <%= render 'actions/tun', { post: post } %>
+        <% end %>
+        <% if current_user.dere?(post) %>
+          <%= render 'actions/undere', { post: post } %>
+        <% else %>
+          <%= render 'actions/dere', { post: post } %>
+        <% end %>
       </div>
     </div>
   </div>

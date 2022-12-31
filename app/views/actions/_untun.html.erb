@@ -1,0 +1,8 @@
+<%= turbo_frame_tag dom_id(post, :tun_post) do %>
+    <%= link_to tun_path(current_user.tuns.find_by(post_id: post.id)),
+              id: "js-tun-button-for-post-#{post.id}",
+              data: { turbo_method: :delete } do %>
+    <%= icon('fas', 'star') %>
+    ツン<%= post.tuns.count %>コ
+  <% end %>
+<% end %>
