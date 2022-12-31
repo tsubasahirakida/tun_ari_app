@@ -7,4 +7,16 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
   enum role: { general: 0, admin: 1 }
+
+  has_many :posts, dependent: :destroy
+  has_many :ais, dependent: :destroy
+  has_many :ai_posts, through: :ais, source: :ai
+
+  def ai(post)
+    ai_posts << post
+  end
+
+  def unai(post)
+    ai_posts.destroy(post)
+  end
 end

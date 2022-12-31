@@ -14,7 +14,8 @@ create_table "posts", force: :cascade do |t|
   t.string :body, null: false
   t.string :post_image, null: false
   t.integer :character_id, null: false
-  t.integer :status
+  t.integer :status, null: false
+  t.references :user, null: false
 
   t.datetime "updated_at", null: false
   t.datetime "created_at", null: false
@@ -23,6 +24,15 @@ end
 create_table "post_body_templates", force: :cascade do |t|
   t.string :title, null: false
   t.string :body, null: false
+
+  t.datetime "updated_at", null: false
+  t.datetime "created_at", null: false
+end
+
+create_table "actions", force: :cascade do |t|
+  t.references :user, null: false
+  t.references :post, null: false
+  t.string :type, null: false
 
   t.datetime "updated_at", null: false
   t.datetime "created_at", null: false

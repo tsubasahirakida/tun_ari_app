@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.character_id = params[:character_id]
-    @post.body ||= params[:tempalate_body]
+    @post.body = params[:tempalate_body]
   end
 
   def show
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if params[:commit] == "下書きにする"
       @post.status = 0
     elsif params[:commit] == "非公開にする"

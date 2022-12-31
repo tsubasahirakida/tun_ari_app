@@ -4,6 +4,9 @@
     <div class="card">
         <p class="card-text"><%= post.sendername %></p>
         <p class="card-text"><%= post.body %></p>
+        <%= link_to ais_path(post_id: post.id), id: "js-ai-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post } do %>
+          <%= icon('far', 'star') %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       get 'template_set'
     end
   end
+  resources :ais, only: %i[create destroy]
 end
