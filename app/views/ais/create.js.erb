@@ -1,1 +1,1 @@
-$("#js-ai-button-for-post-<%= @post.id %>").replaceWith("<%= j(render('posts/unbookmark', post: @post)) %>");
+$("#js-ai-button-for-post-<%= @post.id %>").replaceWith("<%= j(render('actions/unai', post: @post)) %>");

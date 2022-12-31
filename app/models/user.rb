@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :ais, dependent: :destroy
   has_many :ai_posts, through: :ais, source: :post
+  has_many :tuns, dependent: :destroy
+  has_many :tun_posts, through: :tuns, source: :post
 
   def ai(post)
     ai_posts << post
@@ -20,5 +22,15 @@ class User < ApplicationRecord
   end
   def ai?(post)
     ai_posts.include?(post)
+  end
+
+  def tun(post)
+    tun_posts << post
+  end
+  def untun(post)
+    tun_posts.destroy(post)
+  end
+  def tun?(post)
+    tun_posts.include?(post)
   end
 end

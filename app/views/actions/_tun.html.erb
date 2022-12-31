@@ -1,0 +1,4 @@
+<%= link_to tuns_path(post_id: post.id), id: "js-tun-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post }, remote: true do %>
+  <%= icon('far', 'star') %>
+  ツン<%= post.tuns.count %>
+<% end %>
