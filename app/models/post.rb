@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   has_one :post_body_templates, dependent: :destroy
   belongs_to :user
+  has_many :ais, dependent: :destroy
 
   mount_uploader :post_image, PostImageUploader
 end

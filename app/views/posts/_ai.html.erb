@@ -1,3 +1,4 @@
-<%= link_to ais_path(post_id: post.id), id: "js-ai-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post } do %>
+<%= link_to ais_path(post_id: post.id), id: "js-ai-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post }, remote: true do %>
   <%= icon('far', 'star') %>
+  愛<%= post.ais.count %>
 <% end %>
