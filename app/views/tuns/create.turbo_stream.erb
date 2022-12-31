@@ -1,0 +1,3 @@
+<%= turbo_stream.replace(dom_id(@post, :tun_post),
+    partial: 'actions/untun',
+    locals: { post: @post }) %>

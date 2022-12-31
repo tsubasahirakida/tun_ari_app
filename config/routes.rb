@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   resources :ais, only: %i[create destroy]
   resources :tuns, only: %i[create destroy]
+  resources :deres, only: %i[create destroy]
 end

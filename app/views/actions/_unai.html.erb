@@ -1,4 +1,8 @@
-<%= link_to ai_path(current_user.ais.find_by(post_id: post.id)), id: "js-ai-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :delete }, remote: true  do %>
-  <%= icon('fas', 'star') %>
-  愛<%= post.ais.count %>
+<%= turbo_frame_tag dom_id(post, :ai_post) do %>
+    <%= link_to ai_path(current_user.ais.find_by(post_id: post.id)),
+              id: "js-ai-button-for-post-#{post.id}",
+              data: { turbo_method: :delete } do %>
+    <%= icon('fas', 'star') %>
+    愛<%= post.ais.count %>コ
+  <% end %>
 <% end %>

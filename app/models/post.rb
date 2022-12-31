@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :ais, dependent: :destroy
   has_many :tuns, dependent: :destroy
+  has_many :deres, dependent: :destroy
 
   mount_uploader :post_image, PostImageUploader
 end
