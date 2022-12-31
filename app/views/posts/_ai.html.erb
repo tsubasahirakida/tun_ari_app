@@ -1,0 +1,3 @@
+<%= link_to ais_path(post_id: post.id), id: "js-ai-button-for-post-#{post.id}", class:"float-right", data: { turbo_method: :post } do %>
+  <%= icon('far', 'star') %>
+<% end %>

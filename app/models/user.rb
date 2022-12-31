@@ -15,8 +15,10 @@ class User < ApplicationRecord
   def ai(post)
     ai_posts << post
   end
-
   def unai(post)
     ai_posts.destroy(post)
+  end
+  def ai?(post)
+    ai_posts.include?(post)
   end
 end

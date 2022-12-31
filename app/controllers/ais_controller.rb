@@ -8,6 +8,6 @@ class AisController < ApplicationController
   def destroy
     post = current_user.ais.find(params[:id]).post
     current_user.unai(post)
-    redirect_back fallback_location: root_path, success: '愛を外しました'
+    redirect_back fallback_location: root_path, success: '愛を外しました', status: :see_other
   end
 end
