@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :ais, dependent: :destroy
-  has_many :ai_posts, through: :ais, source: :ai
+  has_many :ai_posts, through: :ais, source: :post
 
   def ai(post)
     ai_posts << post
