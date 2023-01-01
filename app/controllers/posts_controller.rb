@@ -60,6 +60,15 @@ class PostsController < ApplicationController
     @post.assign_attributes(post_params)
   end
 
+  def ai_boosting
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    @posts = Post.includes(:aied_users).
+      sort_by {|x|
+        x.aied_users.includes(:ais).where(created_at: from...to).size
+      }.reverse
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])

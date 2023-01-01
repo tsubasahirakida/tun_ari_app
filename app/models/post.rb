@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   has_one :post_body_templates, dependent: :destroy
   belongs_to :user
   has_many :ais, dependent: :destroy
+  has_many :aied_users, through: :ais, source: :user
   has_many :tuns, dependent: :destroy
   has_many :deres, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
