@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'character_set'
       get 'template_set'
+      get 'ai_boosting'
     end
   end
   resources :ais, only: %i[create destroy]
