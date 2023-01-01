@@ -15,6 +15,12 @@ class User < ApplicationRecord
   has_many :tun_posts, through: :tuns, source: :post
   has_many :deres, dependent: :destroy
   has_many :dere_posts, through: :deres, source: :post
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
+
+  def own?(object)
+    id == object.user_id
+  end
 
   def ai(post)
     ai_posts << post
@@ -44,5 +50,15 @@ class User < ApplicationRecord
   end
   def dere?(post)
     dere_posts.include?(post)
+  end
+
+  def bookmark(post)
+    bookmark_posts << post
+  end
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
+  end
+  def bookmark?(post)
+    bookmark_posts.include?(post)
   end
 end
