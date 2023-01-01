@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   has_many :ais, dependent: :destroy
   has_many :tuns, dependent: :destroy
   has_many :deres, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   mount_uploader :post_image, PostImageUploader
 end

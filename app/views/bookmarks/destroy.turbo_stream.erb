@@ -1,0 +1,3 @@
+<%= turbo_stream.replace(dom_id(@post, :bookmark_post),
+    partial: 'actions/bookmark',
+    locals: { post: @post }) %>
