@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -66,6 +66,15 @@ class PostsController < ApplicationController
     @posts = Post.includes(:aied_users).
       sort_by {|x|
         x.aied_users.includes(:ais).where(created_at: from...to).size
+      }.reverse
+  end
+
+  def tundere_boosting
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    @posts = Post.includes(:tuned_users, :dered_users).
+      sort_by {|x|
+        x.tuned_users.includes(:tuns).where(created_at: from...to).size + x.dered_users.includes(:deres).where(created_at: from...to).size
       }.reverse
   end
 
