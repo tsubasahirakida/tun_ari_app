@@ -11,7 +11,9 @@ class Post < ApplicationRecord
   has_many :ais, dependent: :destroy
   has_many :aied_users, through: :ais, source: :user
   has_many :tuns, dependent: :destroy
+  has_many :tuned_users, through: :tuns, source: :user
   has_many :deres, dependent: :destroy
+  has_many :dered_users, through: :deres, source: :user
   has_many :bookmarks, dependent: :destroy
 
   mount_uploader :post_image, PostImageUploader
