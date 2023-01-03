@@ -1,6 +1,6 @@
 <h1>テンプレート</h1>
 <div>
   <% @templates.each do |template| %>
-    <%= render partial: 'template', locals: { template: template, post: @post } %>
+    <%= render partial: 'template_edit', locals: { template: template, post: @post } %>
   <% end %>
 </div>

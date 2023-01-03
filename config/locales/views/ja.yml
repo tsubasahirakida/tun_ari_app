@@ -47,10 +47,16 @@ ja:
       title: '投稿作成'
     create:
       success: '投稿できたよ♡'
+    destroy:
+      success: '投稿を削除したよ♡'
     show:
       title: '投稿詳細'
     edit:
       title: '投稿編集'
+    status_update:
+      success: 'ステータスを変更できたよ♡'
+    update:
+      success: '投稿を編集できたよ♡'
     bookmarks:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の掲示板がありません。'

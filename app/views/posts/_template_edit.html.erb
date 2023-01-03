@@ -1,0 +1,5 @@
+<div class="card">
+  <p class="card-text"><%= template.title %></p>
+  <p class="card-text"><%= template.body %></p>
+  <%= button_to "これにする", edit_post_path(post), { method: :get, params: {tempalate_body: "#{template.body}" } } %>
+</div>

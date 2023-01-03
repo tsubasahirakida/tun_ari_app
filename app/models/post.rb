@@ -3,10 +3,11 @@ class Post < ApplicationRecord
   validates :body, presence: true
   validates :post_image, presence: true
   validates :character_id, presence: true
+  validates :status, presence: true
 
-  enum status: { draft: 0, private: 1, public: 2 }, _prefix: true
+  enum status: { draft: 0, archive: 1, publish: 2 }
 
-  has_one :post_body_templates, dependent: :destroy
+  has_one :post_body_templates
   belongs_to :user
   has_many :ais, dependent: :destroy
   has_many :aied_users, through: :ais, source: :user
