@@ -2,7 +2,7 @@
     <%= link_to ai_path(current_user.ais.find_by(post_id: post.id)),
               id: "js-ai-button-for-post-#{post.id}",
               data: { turbo_method: :delete } do %>
-    <%= icon('fas', 'star') %>
+    <i class="fa-solid fa-star"></i>
     愛<%= post.ais.count %>コ
   <% end %>
 <% end %>
