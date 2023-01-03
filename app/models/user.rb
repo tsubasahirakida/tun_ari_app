@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   enum role: { general: 0, admin: 1 }
 
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
+
   has_many :posts, dependent: :destroy
   has_many :ais, dependent: :destroy
   has_many :ai_posts, through: :ais, source: :post
