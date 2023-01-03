@@ -16,6 +16,9 @@
           <%= f.submit (t 'defaults.login'), class: 'btn btn-primary' %>
         </div>
       <% end %>
+      <%= link_to auth_at_provider_path(provider: :twitter), class: 'btn w-100 twitter' do %>
+        <i class="bi bi-twitter"></i> Twitterでログイン
+      <% end %>
       <div class='text-center'>
         <%= link_to (t '.to_register_page'), new_user_path %>
         <%= link_to (t '.password_forget'), '#' %>
