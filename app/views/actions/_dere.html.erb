@@ -2,7 +2,7 @@
     <%= link_to deres_path(post_id: post.id),
               id: "js-dere-button-for-post-#{post.id}",
               data: { turbo_method: :post } do %>
-    <%= icon('far', 'star') %>
+    <i class="fa-regular fa-star"></i>
     デレ<%= post.deres.count %>コ
   <% end %>
 <% end %>

@@ -8,7 +8,7 @@
         <p class="card-text"><%= @post.body %></p>
         <% if @post.draft? %>
           <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}" do %>
-            <%= icon('fa', 'pen') %>
+            <i class="fa-sharp fa-solid fa-pen"></i>
             文字の再編集をする♡？
           <% end %>
         <% end %>
@@ -24,11 +24,11 @@
           <% end %>
         <% end %>
         <%= link_to post_path(@post), id: "button-delete-#{@post.id}", data: { "turbo-method": :delete, "turbo-confirm": '本当に削除しますか？' } do %>
-          <%= icon 'fas', 'trash' %>
+          <i class="fa-sharp fa-solid fa-trash"></i>
           投稿を削除しますか？
         <% end %>
         <%= link_to '#' do %>
-          <%= icon('fa', 'twitter') %>
+          <i class="fa-brands fa-twitter"></i>
           ツイッターでシェアする？
         <% end %>
         <%= link_to '#' do %>
