@@ -29,9 +29,10 @@ create_table "post_body_templates", force: :cascade do |t|
   t.datetime "created_at", null: false
 end
 
-create_table "ais", force: :cascade do |t|
+create_table "actions", force: :cascade do |t|
   t.references :user, null: false
   t.references :post, null: false
+  t.string :type, null: false
 
   t.datetime "updated_at", null: false
   t.datetime "created_at", null: false
