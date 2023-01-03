@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'character_set'
-      get 'template_set'
+      get 'template_set_new'
+      get 'template_set_edit'
       get 'ai_boosting'
       get 'tundere_boosting'
+    end
+    member do
+      patch 'status_update'
     end
   end
   resources :ais, only: %i[create destroy]

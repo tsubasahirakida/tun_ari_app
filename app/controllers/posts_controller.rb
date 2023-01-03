@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post.body = params[:tempalate_body] if params[:tempalate_body].present?
   end
 
   def create
@@ -25,10 +26,8 @@ class PostsController < ApplicationController
       @post.status = 0
     elsif params[:commit] == "非公開にする"
       @post.status = 1
-    elsif params[:commit] == "公開する"
+    else 
       @post.status = 2
-    else
-      render :new, notice: "statusを選んでください", status: :unprocessable_entity
     end
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
@@ -38,25 +37,60 @@ class PostsController < ApplicationController
     end
   end
 
-  def update
-    if @post.update(post_params)
-      redirect_to post_url(@post), notice: "Post was successfully updated."
+  def status_update
+    @post = Post.find_by(id: params[:id])
+    if params[:commit] == "下書きにする"
+      @post.status = 0
+    elsif params[:commit] == "非公開にする"
+      @post.update(status: 1)
+    elsif params[:commit] == "公開する"
+      @post.status = 2
     else
       render :edit, status: :unprocessable_entity
+    end
+    if @post.save
+      redirect_to post_path(@post), success: t('.success')
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @post.update(post_params)
+    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    if params[:commit] == "下書きにする"
+      @post.status = 0
+    elsif params[:commit] == "非公開にする"
+      @post.status = 1
+    elsif params[:commit] == "公開する"
+      @post.status = 2
+    else
+      render :edit, status: :unprocessable_entity
+    end
+    if @post.save
+      redirect_to post_path(@post), success: t('.success')
+    else
+      render :show, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    redirect_to posts_path, success: t('.success'), status: :see_other
   end
 
   def character_set
   end
 
-  def template_set
+  def template_set_new
     @templates = PostBodyTemplate.all
     @post = Post.find_or_initialize_by(id: params[:id])
+    @post.assign_attributes(post_params)
+  end
+
+  def template_set_edit
+    @templates = PostBodyTemplate.all
+    @post = Post.find_by(id: params[:post][:id])
     @post.assign_attributes(post_params)
   end
 
@@ -84,6 +118,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:character_id, :sendername, :body)
+      params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
     end
 end
