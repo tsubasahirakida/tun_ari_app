@@ -7,7 +7,6 @@ class Post < ApplicationRecord
 
   enum status: { draft: 0, archive: 1, publish: 2 }
 
-  has_one :post_body_templates
   belongs_to :user
   has_many :ais, dependent: :destroy
   has_many :aied_users, through: :ais, source: :user
