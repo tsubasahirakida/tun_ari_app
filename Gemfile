@@ -79,3 +79,8 @@ gem 'ridgepole'
 gem 'rails-i18n'
 gem 'config'
 gem 'dotenv-rails'
+
+#デプロイ時に必要だったgem類
+gem 'net-imap'
+gem 'net-pop'
+gem 'net-smtp'
