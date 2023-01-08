@@ -12,11 +12,15 @@ Avo.configure do |config|
 
   ## == Set the context ==
   config.set_context do
+    {
+      user: _current_user,
+      params: request.params,
+    }
     # Return a context object that gets evaluated in Avo::ApplicationController
   end
 
   ## == Authentication ==
-  # config.current_user_method = {}
+  config.current_user_method = :current_user
   # config.authenticate_with = {}
 
   ## == Authorization ==
@@ -87,7 +91,11 @@ Avo.configure do |config|
   # end
 
   ## == Menus ==
-  # config.main_menu = -> {
+  config.main_menu = -> {
+    resource :user
+    resource :post
+    resource :post_body_template
+  }
   #   section "Dashboards", icon: "dashboards" do
   #     all_dashboards
   #   end
