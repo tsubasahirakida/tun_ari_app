@@ -9,8 +9,8 @@ class UserResource < Avo::BaseResource
   # Fields generated from the model
   field :name, as: :text
   field :email, as: :text
-  field :crypted_password, as: :text
-  field :salt, as: :text
+  field :password, as: :text
+  field :password_confirmation, as: :text
   field :role, as: :select, enum: ::User.roles
   field :authentications, as: :has_many
   field :posts, as: :has_many
