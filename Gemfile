@@ -81,6 +81,7 @@ gem 'config'
 gem 'dotenv-rails'
 gem 'avo'
 gem 'pundit'
+gem 'fog-aws'
 
 #デプロイ時に必要だったgem類
 gem 'net-imap'
