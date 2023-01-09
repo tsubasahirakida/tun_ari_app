@@ -1,6 +1,8 @@
-<h1>テンプレート</h1>
-<div>
-  <% @templates.each do |template| %>
-    <%= render partial: 'template_edit', locals: { template: template, post: @post } %>
-  <% end %>
-</div>
+<section class="text-gray-600 body-font">
+  <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
+    <p class="text-xl">テンプレート一覧</p>
+    <% @templates.each do |template| %>
+      <%= render partial: 'template_edit', locals: { template: template, post: @post } %>
+    <% end %>
+  </div>
+</section>

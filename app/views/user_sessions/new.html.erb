@@ -1,27 +1,25 @@
 <% content_for(:title, t('.title')) %>
-<div class="container place-content-center">
-  <div class="row">
-    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= t '.title' %></h1>
+<div class="flex justify-center w-screen items-center">
+  <div class="w-full md:w-1/2 flex flex-col items-center " >
+    <h1 class="text-center text-2xl font-bold text-pink-300 mb-6"><%= t('.title') %></h1>
+    <div class="w-3/4 mb-6">
       <%= form_with url: login_path, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :email, User.human_attribute_name(:email)  %>
-          <%= f.text_field :email, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password, User.human_attribute_name(:password)  %>
-          <%= f.password_field :password, class: 'form-control' %>
-        </div>
-        <div class="actions">
-          <%= f.submit (t 'defaults.login'), class: 'btn btn-primary' %>
+        <%= f.label :email, User.human_attribute_name(:email), class: "label" %>
+        <%= f.email_field :email, class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "email" %>
+        <%= f.label :password, User.human_attribute_name(:password), class: "label" %>
+        <%= f.password_field :password, class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "password" %>
+        <div class="py-4">
+          <%= f.submit t('defaults.login'), class: "btn btn btn-outline btn-secondary py-4 w-full rounded" %>
         </div>
       <% end %>
-      <%= link_to auth_at_provider_path(provider: :twitter), class: 'btn w-100 twitter' do %>
-        <i class="bi bi-twitter"></i> Twitterでログイン
-      <% end %>
-      <div class='text-center'>
-        <%= link_to (t '.to_register_page'), new_user_path %>
-        <%= link_to (t '.password_forget'), '#' %>
+      <div class="text-center">
+        <%= link_to '新規ユーザー登録はこちら', new_user_path, class: "font-bold text-pink-300" %>
+      </div>
+      <div class="divider">もしくは</div>
+      <div class="text-center my-6">
+        <%= link_to auth_at_provider_path(provider: :twitter), class: 'bg-sky-500 hover:bg-sky-400 text-white rounded px-5 py-3' do %>
+          <i class="fa-brands fa-twitter px-2"></i>Twitterでログイン
+        <% end %>
       </div>
     </div>
   </div>

@@ -28,9 +28,11 @@ class User < ApplicationRecord
   def ai(post)
     ai_posts << post
   end
+
   def unai(post)
     ai_posts.destroy(post)
   end
+
   def ai?(post)
     ai_posts.include?(post)
   end
@@ -38,9 +40,11 @@ class User < ApplicationRecord
   def tun(post)
     tun_posts << post
   end
+
   def untun(post)
     tun_posts.destroy(post)
   end
+
   def tun?(post)
     tun_posts.include?(post)
   end
@@ -48,9 +52,11 @@ class User < ApplicationRecord
   def dere(post)
     dere_posts << post
   end
+
   def undere(post)
     dere_posts.destroy(post)
   end
+
   def dere?(post)
     dere_posts.include?(post)
   end
@@ -58,9 +64,11 @@ class User < ApplicationRecord
   def bookmark(post)
     bookmark_posts << post
   end
+
   def unbookmark(post)
     bookmark_posts.destroy(post)
   end
+
   def bookmark?(post)
     bookmark_posts.include?(post)
   end

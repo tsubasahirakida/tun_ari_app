@@ -1,30 +1,25 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="board-id-<%= post.id %>">
-    <div class="card">
-    <p class="card-text"><%= post.sendername %>へ</p>
-    <%= image_tag post.post_image_url, class: 'card-img-top', size: '600x400' %>
-        <p class="card-text"><%= post.body %></p>
-        <% if current_user.own?(post) %>
-          <%= render 'crud_menus', { post: post } %>
-        <% else %>
-          <%= render 'actions/bookmark_button', { post: post }  %>
-        <% end %>
-        <% if current_user.ai?(post) %>
-          <%= render 'actions/unai', { post: post } %>
-        <% else %>
-          <%= render 'actions/ai', { post: post } %>
-        <% end %>
-        <% if current_user.tun?(post) %>
-          <%= render 'actions/untun', { post: post } %>
-        <% else %>
-          <%= render 'actions/tun', { post: post } %>
-        <% end %>
-        <% if current_user.dere?(post) %>
-          <%= render 'actions/undere', { post: post } %>
-        <% else %>
-          <%= render 'actions/dere', { post: post } %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<p class="text-xl">To:<%= post.sendername %>へ</p>
+<%= image_tag post.post_image_url, class: 'my-1', size: '600x400' %>
+<% if current_user.own?(post) %>
+  <%= render 'crud_menus', { post: post } %>
+<% else %>
+  <%= render 'actions/bookmark_button', { post: post }  %>
+<% end %>
+<div class="row">
+  <% if current_user.ai?(post) %>
+    <%= render 'actions/unai', { post: post } %>
+  <% else %>
+    <%= render 'actions/ai', { post: post } %>
+  <% end %>
+  <% if current_user.tun?(post) %>
+    <%= render 'actions/untun', { post: post } %>
+  <% else %>
+    <%= render 'actions/tun', { post: post } %>
+  <% end %>
+  <% if current_user.dere?(post) %>
+    <%= render 'actions/undere', { post: post } %>
+  <% else %>
+    <%= render 'actions/dere', { post: post } %>
+  <% end %>
 </div>
+      

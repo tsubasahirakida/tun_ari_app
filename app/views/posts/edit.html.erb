@@ -1,27 +1,25 @@
 <% content_for(:title, @post.sendername) %>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
-      <%= form_with model: @post, local: true do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <div class="form-group">
-          <%= image_tag "#{@post.post_image}", size: '300x200'  %>
-          <%= f.label :sendername %>
-          <%= f.text_field :sendername, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :body %>
-          <%= f.text_area :body, class: 'form-control', rows: 10 %>
-        </div>
-        <%= f.submit class: 'btn btn-primary', value: '下書きにする' %>
-        <%= f.submit class: 'btn btn-primary', value: '非公開にする' %>
-        <%= f.submit class: 'btn btn-primary', value: '公開する' %>
-      <% end %>
-      <%= form_with model: @post, url: template_set_edit_posts_path, method: :get, local: true do |f| %>
-        <%= f.hidden_field :id, value: "#{@post.id}" %>
-        <%= f.submit class: 'btn btn-primary', value: 'テンプレートを見る' %>
-      <% end %>
-    </div>
+<section class="text-gray-600 body-font">
+  <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
+    <p class="text-xl"><%= t '.title' %></p>
+    <%= form_with model: @post, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="form-group flex flex-col">
+        <%= f.label :sendername %>
+        <%= f.text_field :sendername, class: 'form-control' %>
+        <%= image_tag "#{@post.post_image}", size: '400x300', class: 'my-1' %>
+        <%= f.label :body, class: 'my-1' %>
+        <%= f.text_area :body, class: 'form-control', rows: 5 %>
+      </div>
+      <div class="flex flex-col">
+        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '下書きにする' %>
+        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '非公開にする' %>
+        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '公開する' %>
+      </div>
+    <% end %>
+    <%= form_with model: @post, url: template_set_edit_posts_path, method: :get, local: true do |f| %>
+      <%= f.hidden_field :id, value: "#{@post.id}" %>
+      <%= f.submit class: 'btn btn-outline btn-primary my-1 flex flex-col', value: 'テンプレートを見る' %>
+    <% end %>
   </div>
-</div>
+</section>
