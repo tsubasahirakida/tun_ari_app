@@ -6,14 +6,14 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
   def new
     @post = Post.new
     @post.character_id = params[:character_id]
     @post.body = params[:tempalate_body]
-  end
-
-  def show
-    @post = Post.find_by(id: params[:id])
   end
 
   def edit
@@ -22,13 +22,13 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    if params[:commit] == "下書きにする"
-      @post.status = 0
-    elsif params[:commit] == "非公開にする"
-      @post.status = 1
-    else 
-      @post.status = 2
-    end
+    @post.status = if params[:commit] == '下書きにする'
+                     0
+                   elsif params[:commit] == '非公開にする'
+                     1
+                   else
+                     2
+                   end
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
@@ -39,11 +39,11 @@ class PostsController < ApplicationController
 
   def status_update
     @post = Post.find_by(id: params[:id])
-    if params[:commit] == "下書きにする"
+    if params[:commit] == '下書きにする'
       @post.status = 0
-    elsif params[:commit] == "非公開にする"
+    elsif params[:commit] == '非公開にする'
       @post.update(status: 1)
-    elsif params[:commit] == "公開する"
+    elsif params[:commit] == '公開する'
       @post.status = 2
     else
       render :edit, status: :unprocessable_entity
@@ -58,11 +58,11 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
-    if params[:commit] == "下書きにする"
+    if params[:commit] == '下書きにする'
       @post.status = 0
-    elsif params[:commit] == "非公開にする"
+    elsif params[:commit] == '非公開にする'
       @post.status = 1
-    elsif params[:commit] == "公開する"
+    elsif params[:commit] == '公開する'
       @post.status = 2
     else
       render :edit, status: :unprocessable_entity
@@ -96,28 +96,29 @@ class PostsController < ApplicationController
 
   def ai_boosting
     to = Time.current.at_end_of_day
-    from = (to - 6.day).at_beginning_of_day
-    @posts = Post.includes(:aied_users).
-      sort_by {|x|
-        x.aied_users.includes(:ais).where(created_at: from...to).size
-      }.reverse
+    from = (to - 6.days).at_beginning_of_day
+    @posts = Post.includes(:aied_users)
+                 .sort_by do |x|
+      x.aied_users.includes(:ais).where(created_at: from...to).size
+    end.reverse
   end
 
   def tundere_boosting
     to = Time.current.at_end_of_day
-    from = (to - 6.day).at_beginning_of_day
-    @posts = Post.includes(:tuned_users, :dered_users).
-      sort_by {|x|
-        x.tuned_users.includes(:tuns).where(created_at: from...to).size + x.dered_users.includes(:deres).where(created_at: from...to).size
-      }.reverse
+    from = (to - 6.days).at_beginning_of_day
+    @posts = Post.includes(:tuned_users, :dered_users)
+                 .sort_by do |x|
+      x.tuned_users.includes(:tuns).where(created_at: from...to).size + x.dered_users.includes(:deres).where(created_at: from...to).size
+    end.reverse
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
+  end
 end

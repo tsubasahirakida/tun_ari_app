@@ -71,19 +71,19 @@ group :test do
   gem 'capybara'
 end
 
+gem 'avo'
 gem 'carrierwave'
-gem 'mini_magick'
-gem 'pry-rails'
-gem 'sorcery'
-gem 'ridgepole'
-gem 'rails-i18n'
 gem 'config'
 gem 'dotenv-rails'
-gem 'avo'
-gem 'pundit'
 gem 'fog-aws'
+gem 'mini_magick'
+gem 'pry-rails'
+gem 'pundit'
+gem 'rails-i18n'
+gem 'ridgepole'
+gem 'sorcery'
 
-#デプロイ時に必要だったgem類
+# デプロイ時に必要だったgem類
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
