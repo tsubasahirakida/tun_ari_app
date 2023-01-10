@@ -1,2 +1,3 @@
 sorcery:
+  callback_url: "http://www.tun-ari.com/oauth/callback?"
   callback_url: "https://www.tun-ari.com/oauth/callback?"
