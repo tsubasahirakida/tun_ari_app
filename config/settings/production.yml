@@ -1,2 +1,2 @@
 sorcery:
-  callback_url: "http://tun-ari.com/oauth/callback?"
+  twitter_callback_url: 'https://www.tun-ari.com/oauth/callback?provider=twitter'
