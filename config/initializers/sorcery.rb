@@ -119,11 +119,6 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.secret = Rails.application.credentials.dig(:twitter, :secret_key)
   config.twitter.callback_url = Settings.sorcery[:twitter_callback_url]
   config.twitter.user_info_path = '/1.1/account/verify_credentials.json?include_email=true'
-  config.twitter.user_info_mapping = {
-    email: 'email',
-    name: 'name',
-    introduction: 'description',
-  }
   #
   # config.facebook.key = ""
   # config.facebook.secret = ""
