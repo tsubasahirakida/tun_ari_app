@@ -1,16 +1,11 @@
 <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <%= link_to image_tag('logo.png', size: '200x100'), root_path %>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <%= link_to "タイムライン", '#', class: 'mr-5 hover:text-gray-900' %>
-      <%= link_to "愛急上昇", '#', class: 'mr-5 hover:text-gray-900' %>
-      <%= link_to "ツンデレ急上昇", '#', class: 'mr-5 hover:text-gray-900' %>
-    </nav>
-    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mx-4 md:mt-0">
-      <%= link_to 'ゲストログイン', guest_login_path, data: { turbo_method: :post}, class: 'nav-link'  %>
-    </button>
-    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-      <%= link_to 'ログイン', login_path, class: 'nav-link' %>
-    </button>
+    <%= link_to image_tag('logo.png', size: '200x100'), root_path %>
+    <div class="flex-none md:mr-0 md:ml-auto">
+      <ul class="menu menu-horizontal px-1">
+        <li><%= link_to 'ゲストログイン', guest_login_path, data: { turbo_method: :post}, class: 'nav-link'  %></li>
+        <li><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+      </ul>
+    </div>
   </div>
 </header>
