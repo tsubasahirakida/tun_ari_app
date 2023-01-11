@@ -1,14 +1,26 @@
 <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <%= link_to image_tag('logo.png', size: '200x100'), root_path %>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <%= link_to "タイムライン", posts_path, class: 'mr-5 hover:text-gray-900' %>
-      <%= link_to "愛急上昇", ai_boosting_posts_path, class: 'mr-5 hover:text-gray-900' %>
-      <%= link_to "ツンデレ急上昇", tundere_boosting_posts_path, class: 'mr-5 hover:text-gray-900' %>
-      <%= link_to "投稿する", character_set_posts_path, class: 'mr-5 hover:text-gray-900' %>
-    </nav>
-    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-      <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
-    </button>
+    <%= link_to image_tag('logo.png', size: '200x100'), root_path %>
+    <div class="flex-none md:mr-0 md:ml-auto">
+      <ul class="menu menu-horizontal px-1">
+        <% unless current_user.guest? %>
+        <li tabindex="0">
+          <a class="btn btn-square btn-ghost">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+           <li><a>公開した投稿一覧♡</a></li>
+           <li><a>非公開の投稿一覧♡</a></li>
+           <li><a>下書き中の投稿一覧♡</a></li>
+           <li><a>ブックマークした投稿一覧♡</a></li>
+         </ul>
+        </li>
+        <% end %>
+        <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
+        <% if current_user.guest? %>
+          <li><%= link_to '会員登録♡', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </header>
