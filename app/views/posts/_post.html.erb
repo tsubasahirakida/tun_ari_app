@@ -1,12 +1,12 @@
 <p class="text-xl">To:<%= post.sendername %>へ</p>
 <%= image_tag post.post_image_url, class: 'my-1', size: '400x300' %>
 <% if current_user.own?(post) %>
-  <%= render 'crud_menus', { post: post } %>
+  <%= render 'posts/crud_menus', { post: post } %>
 <% else %>
   <%= render 'actions/bookmark_button', { post: post }  %>
 <% end %>
 <div class="row">
-  <% if current_user.ai?(post) %>
+  <% if current_user.ai?(post) && (post.publish || post.archive)%>
     <%= render 'actions/unai', { post: post } %>
   <% else %>
     <%= render 'actions/ai', { post: post } %>

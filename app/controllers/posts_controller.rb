@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  skip_before_action :require_login, only: %i[index]
 
   def index
-    @posts = Post.includes(:user).order(created_at: :desc)
+    @posts = Post.includes(:user).publish.order(created_at: :desc)
   end
 
   def show
