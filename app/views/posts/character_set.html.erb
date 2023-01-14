@@ -1,11 +1,24 @@
 <% content_for(:title, t('.title')) %>
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 body-font mb-5">
+  <p class="text-center text-xl text-black-200 opacity-90"><%= t '.title' %></p>
   <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
-    <%= image_tag '1.png', size: '400x300'  %>
-    <p class="text-xl">ツンデレの女の子</p>
-    <%= button_to "これにする", new_post_path, { method: :get, params: {character_id: 1}, class: "my-2 btn btn-outline btn-secondary" } %>
-    <%= image_tag '2.png', size: '400x300'  %>
-    <p class="text-xl">ツンデレの女の子</p>
-    <%= button_to "これにする", new_post_path, { method: :get, params: {character_id: 2}, class: "mt-2 btn btn-outline btn-secondary" } %>
+    <div class="card border mt-5 card-bordered border-pink-300">
+      <figure class="px-6 mt-5">
+        <%= image_tag '1.png', size: '400x300' %>
+      </figure>
+      <div class="items-center text-center my-3">
+        <p class="text-xl">ツンデレの女の子</p>
+        <%= button_to "これにする", new_post_path, { method: :get, params: {character_id: 1}, class: "my-3 mb-1 btn btn-outline btn-secondary" } %>
+      </div>
+    </div>
+    <div class="card border mt-5 card-bordered border-pink-300">
+      <figure class="px-6 mt-5">
+        <%= image_tag '2.png', size: '400x300'  %>
+      </figure>
+      <div class="items-center text-center my-3">
+        <p class="text-xl">ツンデレの女の子</p>
+        <%= button_to "これにする", new_post_path, { method: :get, params: {character_id: 2}, class: "my-3 mb-1 btn btn-outline btn-secondary" } %>
+      </div>
+    </div>
   </div>
 </section>

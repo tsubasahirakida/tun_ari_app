@@ -1,8 +1,7 @@
 <%= turbo_frame_tag dom_id(post, :tun_post) do %>
-    <%= link_to tuns_path(post_id: post.id),
-              id: "js-tun-button-for-post-#{post.id}",
-              data: { turbo_method: :post } do %>
-    <i class="fa-regular fa-star"></i>
-    ツン<%= post.tuns.count %>コ
-  <% end %>
+    <%= link_to "ツン#{post.tuns.count}コ",
+        tuns_path(post_id: post.id),
+        id: "js-tun-button-for-post-#{post.id}",
+        class: "btn btn-outline btn-info opacity-30",
+        data: { turbo_method: :post } %>
 <% end %>

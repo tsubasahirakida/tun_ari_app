@@ -21,14 +21,14 @@ ja:
     delete: '削除'
   users:
     new:
-      title: 'ユーザー登録'
+      title: 'ユーザー登録画面♡'
       to_login_page: 'ログインページへ'
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
   user_sessions:
     new:
-      title: 'ログイン'
+      title: 'ログイン画面♡'
       to_register_page: '登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
     create:
@@ -38,77 +38,43 @@ ja:
       success: 'ログアウトしました'
   posts:
     index:
-      title: '投稿一覧'
-      form: '検索フォーム'
+      title: 'タイムライン一覧♡'
       no_result: '掲示板がありません'
+    ai_boosting:
+      title: '愛急上昇一覧♡'
+    tundere_boosting:
+      title: 'ツンデレ急上昇一覧♡'
     character_set:
-      title: 'キャラクター選択'
+      title: 'キャラクターを選んでね♡'
+    template_set_new:
+      title: 'テンプレート選択画面♡'
+    template_set_edit:
+      title: 'テンプレート選択画面♡'
     new:
-      title: '投稿作成'
+      title: '投稿作成画面♡'
     create:
       success: '投稿できたよ♡'
     destroy:
       success: '投稿を削除したよ♡'
     show:
-      title: '投稿詳細'
+      title: '投稿詳細画面♡'
     edit:
-      title: '投稿編集'
+      title: '投稿編集画面♡'
     status_update:
       success: 'ステータスを変更できたよ♡'
     update:
       success: '投稿を編集できたよ♡'
-    bookmarks:
-      title: 'ブックマーク一覧'
-      no_result: 'ブックマーク中の掲示板がありません。'
   bookmarks:
     create:
       success: 'ブックマークしました'
     destroy:
       success: 'ブックマークを外しました'
   profiles:
-    show:
-      title: 'プロフィール'
-    edit:
-      title: 'プロフィール編集'
-  password_resets:
-    new:
-      title: 'パスワードリセット申請'
-      submit: '送信'
-    edit:
-      title: 'パスワードリセット'
-    create:
-      success: 'パスワードリセット手順を送信しました'
-    update:
-      success: 'パスワードを変更しました'
-      fail: 'パスワードの変更に失敗しました'
-  admin:
-    user_sessions:
-      new:
-        title: 'ログイン'
-      create:
-        success: 'ログインしました'
-        fail: 'ログインに失敗しました'
-      destroy:
-        success: 'ログアウトしました'
-    dashboards:
-      index:
-        title: 'ダッシュボード'
-    users:
-      index:
-        title: 'ユーザー一覧'
-      show:
-        title: 'ユーザー詳細'
-      edit:
-        title: 'ユーザー編集'
-      update:
-        success: 'ユーザーを編集しました'
-        fail: 'ユーザーを編集できませんでした'
-      destroy:
-        success: 'ユーザーを削除しました'
-    posts:
-      index:
-        title: '掲示板一覧'
-      show:
-        title: '掲示板詳細'
-      edit:
-        title: '掲示板編集'
+    my_publishpost:
+      title: '公開した投稿一覧♡'
+    my_archivepost:
+      title: '非公開の投稿一覧♡'
+    my_draftpost:
+      title: '下書き中の投稿一覧♡'
+    my_bookmarkpost:
+      title: 'ブックマークした投稿一覧♡'

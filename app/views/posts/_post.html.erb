@@ -1,25 +1,45 @@
-<p class="text-xl">To:<%= post.sendername %>へ</p>
-<%= image_tag post.post_image_url, class: 'my-1', size: '400x300' %>
-<% if current_user.own?(post) %>
-  <%= render 'posts/crud_menus', { post: post } %>
-<% else %>
-  <%= render 'actions/bookmark_button', { post: post }  %>
-<% end %>
-<div class="row">
-  <% if current_user.ai?(post) && (post.publish || post.archive)%>
-    <%= render 'actions/unai', { post: post } %>
-  <% else %>
-    <%= render 'actions/ai', { post: post } %>
-  <% end %>
-  <% if current_user.tun?(post) %>
-    <%= render 'actions/untun', { post: post } %>
-  <% else %>
-    <%= render 'actions/tun', { post: post } %>
-  <% end %>
-  <% if current_user.dere?(post) %>
-    <%= render 'actions/undere', { post: post } %>
-  <% else %>
-    <%= render 'actions/dere', { post: post } %>
-  <% end %>
+<div class="card border mt-5 card-bordered border-pink-300">
+  <div class="overflow-hidden">
+    <div class="card-body p-0 mt-5">
+      <div class="flex">
+        <p class="text-xl pl-7">To:<%= post.sendername %>へ</p>
+        <div class="flex mr-7">
+          <% if current_user.own?(post) %>
+            <%= render 'posts/crud_menus', { post: post } %>
+          <% else %>
+            <%= render 'actions/bookmark_button', { post: post } %>
+          <% end %>
+          <!-- <div class="flex justify-end mx-3">
+            <% if current_user.own?(post) %>
+              <%= render 'posts/crud_menus', { post: post } %>
+            <% else %>
+              <%= render 'actions/bookmark_button', { post: post } %>
+            <% end %>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <figure class="px-6">
+      <%= image_tag post.post_image_url, class: 'my-1', size: '400x300' %>
+    </figure>
+    <div class="items-center text-center my-3">
+      <div class="row">
+          <% if current_user.tun?(post) %>
+            <%= render 'actions/untun', { post: post } %>
+          <% else %>
+            <%= render 'actions/tun', { post: post } %>
+          <% end %>
+           <% if current_user.ai?(post)%>
+            <%= render 'actions/unai', { post: post } %>
+          <% else %>
+             <%= render 'actions/ai', { post: post } %>
+          <% end %>
+          <% if current_user.dere?(post) %>
+            <%= render 'actions/undere', { post: post } %>
+          <% else %>
+            <%= render 'actions/dere', { post: post } %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-      
