@@ -1,7 +1,7 @@
 <% content_for(:title, t('.title')) %>
 <section class="text-gray-600 body-font">
   <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
-    <p class="text-xl"><%= t '.title' %></p>
+    <p class="mb-3 text-center text-xl text-black-200 opacity-90"><%= t '.title' %></p>
     <%= form_with model: @post, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="form-group flex flex-col">
@@ -16,11 +16,11 @@
         <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '下書きにする' %>
         <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '非公開にする' %>
         <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '公開する' %>
+      <% end %>
+      <%= form_with model: @post, url: template_set_new_posts_path, method: :get, local: true do |f| %>
+        <%= f.hidden_field :character_id %>
+        <%= f.submit class: 'w-full btn btn-outline btn-primary my-1', value: 'テンプレートを見る' %>
+      <% end %>
       </div>
-    <% end %>
-    <%= form_with model: @post, url: template_set_new_posts_path, method: :get, local: true do |f| %>
-      <%= f.hidden_field :character_id %>
-      <%= f.submit class: 'btn btn-outline btn-primary my-1 flex flex-col', value: 'テンプレートを見る' %>
-    <% end %>
   </div>
 </section>
