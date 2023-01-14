@@ -2,8 +2,12 @@
 <section class="text-gray-600 body-font">
   <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
     <p class="text-xl"><%= t '.title' %></p>
-    <% @posts.each do |post| %>
-      <%= render post %>
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    <% else %>
+      <%= render 'no_post' %>
     <% end %>
   </div>
 </section>
