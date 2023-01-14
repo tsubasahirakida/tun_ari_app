@@ -1,8 +1,7 @@
 <%= turbo_frame_tag dom_id(post, :dere_post) do %>
-    <%= link_to dere_path(current_user.deres.find_by(post_id: post.id)),
+    <%= link_to "デレ#{post.deres.count}コ",
+              dere_path(current_user.deres.find_by(post_id: post.id)),
               id: "js-dere-button-for-post-#{post.id}",
-              data: { turbo_method: :delete } do %>
-    <i class="fa-solid fa-star"></i>
-    デレ<%= post.deres.count %>コ
-  <% end %>
+              class: "btn btn-active btn-secondary opacity-30",
+              data: { turbo_method: :delete } %>
 <% end %>
