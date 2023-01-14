@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Avo::Engine, at: Avo.configuration.root_path
+  #mount Avo::Engine, at: Avo.configuration.root_path
   root 'home#top'
   
   get 'login', to: 'user_sessions#new'
@@ -28,4 +28,12 @@ Rails.application.routes.draw do
   resources :tuns, only: %i[create destroy]
   resources :deres, only: %i[create destroy]
   resources :bookmarks, only: %i[create destroy]
+  resource :profile, only: %i[] do
+    collection do
+      get 'my_publishpost'
+      get 'my_archivepost'
+      get 'my_draftpost'
+      get 'my_bookmarkpost'
+    end
+  end
 end
