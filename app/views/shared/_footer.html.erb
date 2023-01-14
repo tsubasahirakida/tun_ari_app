@@ -1,15 +1,13 @@
-<footer class="bg-gray-100 w-screen sticky bottom-0">
-<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <ul class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <li class="mr-5 hover:text-gray-900"><%= link_to "タイムライン", posts_path %></li>
-      <li class="mr-5 hover:text-gray-900"><%= link_to "愛急上昇", ai_boosting_posts_path %></li>
-      <li class="mr-5 hover:text-gray-900"><%= link_to "ツンデレ急上昇", tundere_boosting_posts_path %></li>
-      <% if current_user.guest? %>
-        <li class="mr-5 hover:text-gray-900"><%= link_to "投稿する", '#', data: { turbo_method: "get",
-          turbo_confirm: "ごめんね！会員登録しないとできないんだ！\r\n会員登録してみる？？"} %></li>
-      <% else %>
-        <li class="mr-5 hover:text-gray-900"><%= link_to "投稿する", character_set_posts_path %></li>
-      <% end %>
-    </ul>
-</div>
+<footer class="footer footer-center p-5 bg-base-200 text-base-content w-screen sticky bottom-0">
+  <div class="grid grid-flow-col gap-10">
+    <%= link_to "タイムライン", posts_path %>
+    <%= link_to "愛急上昇", ai_boosting_posts_path %>
+    <%= link_to "ツンデレ急上昇", tundere_boosting_posts_path %>
+    <% if current_user.guest? %>
+      <%= link_to "投稿する", '#', data: { turbo_method: "get",
+      turbo_confirm: "ごめんね！\r\n会員登録しないと投稿できないんだ🥲"} %>
+    <% else %>
+      <%= link_to "投稿する", character_set_posts_path %>
+    <% end %>
+  </div>
 </footer>
