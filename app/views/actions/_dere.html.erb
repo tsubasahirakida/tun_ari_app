@@ -2,6 +2,6 @@
     <%= link_to "デレ#{post.deres.count}コ",
               deres_path(post_id: post.id),
               id: "js-dere-button-for-post-#{post.id}",
-              class: "btn btn-outline btn-secondary opacity-30",
+              class: "btn btn-outline btn-secondary opacity-50",
               data: { turbo_method: :post } %>
 <% end %>
