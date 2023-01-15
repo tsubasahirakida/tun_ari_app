@@ -2,6 +2,6 @@
     <%= link_to link_to "ツン#{post.tuns.count}コ",
         tun_path(current_user.tuns.find_by(post_id: post.id)),
         id: "js-tun-button-for-post-#{post.id}",
-        class: "btn btn-active btn-info opacity-30",
+        class: "btn btn-active btn-info opacity-50",
         data: { turbo_method: :delete } %>
 <% end %>

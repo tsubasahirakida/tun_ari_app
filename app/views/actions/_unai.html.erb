@@ -2,7 +2,7 @@
     <%= link_to "愛#{post.ais.count}コ",
               ai_path(current_user.ais.find_by(post_id: post.id)),
               id: "js-ai-button-for-post-#{post.id}",
-              class: "btn btn-active btn-primary opacity-30",
+              class: "btn btn-active btn-primary opacity-50",
               data: { turbo_method: :delete } %>
 <% end %>
 

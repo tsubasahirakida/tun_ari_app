@@ -50,22 +50,22 @@
     </div>
     <div class="text-center items-center">
       <% if @post.draft? %>
-        <%= link_to '文字の再編集をしますか？',
-        edit_post_path(@post), class:'w-full btn btn-outline btn-secondary my-1', id: "button-edit-#{@post.id}" %>
+        <%= link_to '文字の再編集',
+        edit_post_path(@post), class:'w-full btn btn-outline my-1', id: "button-edit-#{@post.id}" %>
       <% end %>
       <%= form_with model: @post, url: status_update_post_path(@post), local: true do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <% if @post.draft? %>
-            <%= f.submit class: 'w-full btn btn-outline btn-info my-1', value: '非公開にする' %>
-            <%= f.submit class: 'w-full btn btn-outline btn-info my-1', value: '公開する' %>
+            <%= f.submit class: 'w-full btn btn-outline my-1', value: '非公開にする' %>
+            <%= f.submit class: 'w-full btn btn-outline my-1', value: '公開する' %>
           <% elsif @post.archive? %>
-              <%= f.submit class: 'w-full btn btn-outline btn-info my-1', value: '公開する' %>
+              <%= f.submit class: 'w-full btn btn-outline my-1', value: '公開する' %>
           <% elsif @post.publish?  %>
-              <%= f.submit class: 'w-full btn btn-outline btn-info my-1', value: '非公開にする' %>
+              <%= f.submit class: 'w-full btn btn-outline my-1', value: '非公開にする' %>
           <% end %>
       <% end %>
-      <%= link_to '投稿を削除しますか？',
-        post_path(@post), id: "button-delete-#{@post.id}", class:'w-full btn btn-outline btn-primary my-1',
+      <%= link_to '投稿を削除',
+        post_path(@post), id: "button-delete-#{@post.id}", class:'w-full btn btn-outline my-1',
         data: { "turbo-method": :delete, "turbo-confirm": '本当に削除しますか？' } %>
         <!-- <%= link_to '#' do %>
           <i class="fa-brands fa-twitter"></i>

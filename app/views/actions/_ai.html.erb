@@ -2,6 +2,6 @@
     <%= link_to "愛#{post.ais.count}コ",
               ais_path(post_id: post.id),
               id: "js-ai-button-for-post-#{post.id}",
-              class: "btn btn-outline btn-primary opacity-30",
+              class: "btn btn-outline btn-primary opacity-50",
               data: { turbo_method: :post } %>
 <% end %>
