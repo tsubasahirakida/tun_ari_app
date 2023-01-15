@@ -4,6 +4,7 @@ ja:
       role:
         general: 一般
         admin: 管理者
+        guest: ゲスト
     post:
       status:
         draft: '下書き'
