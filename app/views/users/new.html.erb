@@ -6,26 +6,26 @@
       <%= form_with model: @user, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :name, class: "label" %>
-        <%= f.text_field :name,  class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "ツン子" %>
+        <%= f.text_field :name,  class: "w-full p-5 input input-bordered rounded", placeholder: "ツン子" %>
         <%= f.label :email, class: "label" %>
-        <%= f.email_field :email, class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "email" %>
+        <%= f.email_field :email, class: "w-full p-5 input input-bordered rounded", placeholder: "email" %>
         <%= f.label :password, class: "label" %>
-        <%= f.password_field :password,  class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "password" %>
+        <%= f.password_field :password,  class: "w-full p-5 input input-bordered rounded", placeholder: "password" %>
         <%= f.label :password_confirmation, class: "label" %>
-        <%= f.password_field :password_confirmation, class: "w-full py-4 px-8 input input-bordered rounded", placeholder: "password" %>
-        <div class="py-4">
-          <%= f.submit t('defaults.register'), class: "btn btn btn-outline btn-secondary py-4 w-full rounded" %>
+        <%= f.password_field :password_confirmation, class: "w-full p-5 input input-bordered rounded", placeholder: "password" %>
+        <div class="py-5">
+          <%= f.submit t('defaults.register'), class: "btn btn btn-outline btn-secondary py-5 w-full rounded" %>
         </div>
       <% end %>
       <div class="text-center">
         <%= link_to 'ログインはこちら', login_path, class: "font-bold text-pink-300" %>
       </div>
-      <div class="divider">もしくは</div>
+      <!-- <div class="divider">もしくは</div>
       <div class="text-center my-6">
         <%= link_to auth_at_provider_path(provider: :twitter), class: 'bg-sky-500 hover:bg-sky-400 text-white rounded px-5 py-3' do %>
           <i class="fa-brands fa-twitter px-2"></i>Twitterでログイン
         <% end %>
-      </div>
-    </div>
+      </div>-->
+    </div> 
   </div>
 </div>

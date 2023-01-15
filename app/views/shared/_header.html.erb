@@ -18,7 +18,7 @@
         <% end %>
         <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
         <% if current_user.guest? %>
-          <li><%= link_to '会員登録♡', login_path, class: 'nav-link' %></li>
+          <li><%= link_to '会員登録♡', new_user_path, class: 'nav-link' %></li>
         <% end %>
       </ul>
     </div>
