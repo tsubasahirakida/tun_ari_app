@@ -82,13 +82,13 @@ class PostsController < ApplicationController
   end
 
   def template_set_new
-    @templates = PostBodyTemplate.all
+    @templates = PostBodyTemplate.all.order(:created_at)
     @post = Post.find_or_initialize_by(id: params[:id])
     @post.assign_attributes(post_params)
   end
 
   def template_set_edit
-    @templates = PostBodyTemplate.all
+    @templates = PostBodyTemplate.all.order(:created_at)
     @post = Post.find_by(id: params[:post][:id])
     @post.assign_attributes(post_params)
   end
