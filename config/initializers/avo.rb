@@ -92,7 +92,7 @@ Avo.configure do |config|
 
   ## == Menus ==
   config.main_menu = -> {
-    resource :user
+    #resource :user
     resource :post
     resource :post_body_template
   }
