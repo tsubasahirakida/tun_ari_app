@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #mount Avo::Engine, at: Avo.configuration.root_path
   root 'home#top'
   get '/privacy', to: 'home#privacy'
+  get '/terms', to: 'home#terms'
   
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
