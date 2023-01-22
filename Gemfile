@@ -83,8 +83,3 @@ gem 'rails-i18n'
 gem 'ridgepole'
 gem 'sorcery'
 gem 'enum_help'
-
-# デプロイ時に必要だったgem類
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
