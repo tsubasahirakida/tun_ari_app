@@ -83,3 +83,6 @@ gem 'rails-i18n'
 gem 'ridgepole'
 gem 'sorcery'
 gem 'enum_help'
+
+#サイトマップの作成・更新
+gem 'sitemap_generator'
