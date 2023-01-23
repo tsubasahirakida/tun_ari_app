@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#top'
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+
+  get '/sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/tun-ari-app/sitemaps/sitemap.xml.gz')
   
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

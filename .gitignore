@@ -38,3 +38,4 @@ config/environments/*.local.yml
 /public/uploads
 /.env
 /public/assets
+/public/sitemap.xml.gz
