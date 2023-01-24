@@ -88,3 +88,6 @@ gem 'enum_help'
 gem 'sitemap_generator'
 gem 'whenever'
 gem 'aws-sdk'
+
+#メタタグの設定
+gem 'meta-tags'
