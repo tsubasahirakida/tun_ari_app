@@ -3,21 +3,17 @@
     <div class="card-body p-0 mt-5">
       <div class="flex">
         <p class="text-xl pl-7">To:<%= post.sendername %>へ</p>
-        <div class="flex mr-7">
+        <div class="flex mr-5">
           <% if current_user.own?(post) %>
               <%= render 'posts/crud_menus', { post: post } %>
           <% else %>
             <% unless current_user.guest? %>
               <%= render 'actions/bookmark_button', { post: post } %>
+              <div class="flex justify-end mx-2">
+                <%= render 'actions/download_button', { post: post } %>
+              </div>
             <% end %>
           <% end %>
-          <!-- <div class="flex justify-end mx-3">
-            <% if current_user.own?(post) %>
-              <%= render 'posts/crud_menus', { post: post } %>
-            <% else %>
-              <%= render 'actions/bookmark_button', { post: post } %>
-            <% end %>
-          </div> -->
         </div>
       </div>
     </div>
