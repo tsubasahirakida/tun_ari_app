@@ -109,6 +109,13 @@ class PostsController < ApplicationController
       x.tuned_users.includes(:tuns).where(tuns: {created_at: from...to}).size + x.dered_users.includes(:deres).where(deres: {created_at: from...to}).size}.reverse
   end
 
+  def download
+    @post = Post.find(params[:id])
+    image = @post.post_image
+    send_data(image.read,
+              filename: "#{@post.body}.png")
+  end
+
   private
 
   def set_post
