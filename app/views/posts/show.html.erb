@@ -7,21 +7,12 @@
       <div class="overflow-hidden">
         <div class="card-body p-0 mt-5">
           <div class="flex">
-          <p class="text-xl pl-7">To:<%= @post.sendername %>へ</p>
-            <!-- <div class="flex mr-7">
-              <% if current_user.own?(@post) %>
-                <%= render 'posts/crud_menus', { post: @post } %>
-              <% else %>
-                <%= render 'actions/bookmark_button', { post: @post } %>
-              <% end %>
-              <div class="flex justify-end mx-3">
-                <% if current_user.own?(@post) %>
-                  <%= render 'posts/crud_menus', { post: @post } %>
-                <% else %>
-                  <%= render 'actions/bookmark_button', { post: @post } %>
-                <% end %>
-              </div> 
-            </div> -->
+          <p class="text-xl pl-7">To:<%= @post.sendername %>へ</p>   
+          <% unless current_user.guest? || @post.draft? %>
+            <div class="flex justify-end mx-7">
+              <%= render 'actions/download_button', { post: @post } %>
+            </div>
+          <% end %>
           </div>
         </div>
         <figure class="px-6">
