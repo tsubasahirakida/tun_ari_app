@@ -4,11 +4,13 @@
       <div class="flex">
         <p class="text-xl pl-7">To:<%= post.sendername %>へ</p>
         <div class="flex mr-5">
-          <% if current_user.own?(post) %>
-            <%= render 'posts/crud_menus', { post: post } %>
-          <% else %>
-            <%= render 'actions/bookmark_button', { post: post } %>
-          <% end %>        
+          <% unless current_user.guest? %>
+            <% if current_user.own?(post) %>
+              <%= render 'posts/crud_menus', { post: post } %>
+            <% else %>
+              <%= render 'actions/bookmark_button', { post: post } %>
+            <% end %>
+          <% end %>      
           <% unless current_user.guest? || post.draft? %>
             <div class="flex justify-end mx-2">
               <%= render 'actions/download_button', { post: post } %>
