@@ -30,8 +30,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@bassa_IT',
-        image: image_url('ツンあり.png'),
+        site: '@bassa_IT'
       }
     }
   end
