@@ -1,4 +1,5 @@
 class AisController < ApplicationController
+  #find_byに変更
   def create
     @post = Post.find(params[:post_id])
     current_user.ai(@post)

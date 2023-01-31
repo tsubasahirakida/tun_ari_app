@@ -14,6 +14,7 @@ class UserSessionsController < ApplicationController
   end
 
   def guest_login
+    #model記述
     @guest_user = User.create(
     name: 'ゲスト',
     email: SecureRandom.alphanumeric(10) + "@example.com",
