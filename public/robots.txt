@@ -1,1 +1,6 @@
 Sitemap: https://tun-ari-app.s3.amazonaws.com/sitemaps/sitemap.xml.gz
+
+User-agent: Twitterbot
+Disallow: *
+
+Allow: /posts
