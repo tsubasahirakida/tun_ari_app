@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    #private下に変更
     @post.status = if params[:commit] == '下書きにする'
                      0
                    elsif params[:commit] == '非公開にする'
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
                    else
                      2
                    end
+    #ThumbnailCreatorをImageCreatorに変更
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
@@ -38,6 +40,7 @@ class PostsController < ApplicationController
 
   def status_update
     @post = Post.find_by(id: params[:id])
+    #private下に変更
     if params[:commit] == '下書きにする'
       @post.status = 0
     elsif params[:commit] == '非公開にする'
@@ -56,7 +59,9 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
+    #ThumbnailCreatorをImageCreatorに変更
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    #private下に変更
     if params[:commit] == '下書きにする'
       @post.status = 0
     elsif params[:commit] == '非公開にする'
@@ -78,6 +83,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('.success'), status: :see_other
   end
 
+  #処理ないこと明示
   def character_set
   end
 
@@ -94,6 +100,7 @@ class PostsController < ApplicationController
   end
 
   def ai_boosting
+    #modelにscope化
     to = Time.current.at_end_of_day
     from = (to - 6.days).at_beginning_of_day
     @posts = Post.includes(:aied_users).publish
@@ -102,6 +109,7 @@ class PostsController < ApplicationController
   end
 
   def tundere_boosting
+    #modelにscope化
     to = Time.current.at_end_of_day
     from = (to - 6.days).at_beginning_of_day
     @posts = Post.includes(:tuned_users, :dered_users).publish
@@ -110,6 +118,7 @@ class PostsController < ApplicationController
   end
 
   def download
+    #find_byに変更
     @post = Post.find(params[:id])
     image = @post.post_image
     send_data(image.read,

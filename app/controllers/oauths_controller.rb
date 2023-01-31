@@ -1,4 +1,5 @@
 class OauthsController < ApplicationController
+  #Twitterログイン不要なら削除
   skip_before_action :require_login
   def oauth
     login_at(auth_params[:provider])

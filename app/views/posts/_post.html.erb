@@ -4,6 +4,7 @@
       <div class="flex">
         <p class="text-xl pl-7">To:<%= post.sendername %>へ</p>
         <div class="flex mr-5">
+          <%# renderの記述もhelperに移行できる確認 %>
           <% unless current_user.guest? %>
             <% if current_user.own?(post) %>
               <%= render 'posts/crud_menus', { post: post } %>

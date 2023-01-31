@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  #set_user不要
   before_action :set_user
 
   def my_publishpost
