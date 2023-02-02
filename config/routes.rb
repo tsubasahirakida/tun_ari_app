@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       patch 'status_update'
       get 'download'
+      get 'tweet'
     end
   end
   resources :ais, only: %i[create destroy]
