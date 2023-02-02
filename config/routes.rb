@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
-  #画像保存ボタン
-  
-
   resources :users, only: %i[new create]
   resources :posts do
     collection do

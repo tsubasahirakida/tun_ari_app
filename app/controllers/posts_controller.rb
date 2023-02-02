@@ -125,6 +125,10 @@ class PostsController < ApplicationController
               filename: "#{@post.body}.png")
   end
 
+  def tweet
+    @Post = Post.find(params[:id])
+  end
+
   private
 
   def set_post
