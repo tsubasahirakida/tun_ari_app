@@ -58,7 +58,7 @@
       <%= link_to '投稿を削除',
         post_path(@post), id: "button-delete-#{@post.id}", class:'w-full btn btn-outline my-1',
         data: { "turbo-method": :delete, "turbo-confirm": '本当に削除しますか？' } %>
-      <%= link_to "https://twitter.com/share?url=https://www.tun-ari.com/posts/#{@post.id}/tweet/&text=ツンありだよ", title: 'Twitter', target: '_blank', class: "twitter-btn btn" do %>
+      <%= link_to "https://twitter.com/share?url=https://www.tun-ari.com/posts/#{@post.id}/tweet&text=ツンありだよ", title: 'Twitter', target: '_blank', class: "twitter-btn btn" do %>
         <i class="fab fa-twitter"></i> Twitterにシェア <i class="fas fa-external-link-alt"></i>
       <% end %>
        <!-- <%= link_to '#' do %>

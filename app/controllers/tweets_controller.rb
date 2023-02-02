@@ -3,5 +3,6 @@ class TweetsController < ApplicationController
   skip_before_action :require_login
 
   def tweet
+    binding.pry
   end
 end
