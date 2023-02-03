@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_tweet_post
+    @post = Post.find(params[:id])
+  end
+
   def not_authenticated
     flash[:warning] = t('defaults.message.require_login')
     redirect_to login_path
