@@ -10,7 +10,7 @@ create_table "users", force: :cascade do |t|
 end
 
 create_table "posts", force: :cascade do |t|
-  t.string :sendername, null: false
+  t.string :sendername, limit: 15, null: false
   t.string :body, null: false
   t.string :post_image, null: false
   t.integer :character_id, null: false

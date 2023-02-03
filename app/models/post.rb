@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :sendername, presence: true
+  validates :sendername, presence: true, length: { maximum: 15 }
   validates :body, presence: true
   validates :post_image, presence: true
   validates :character_id, presence: true
