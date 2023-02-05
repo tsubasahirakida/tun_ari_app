@@ -3,7 +3,7 @@
     <div class="card-body p-0 mt-5">
       <div class="flex">
         <p class="text-xl pl-7">To:<%= post.sendername.truncate(15) %>へ</p>
-        <div class="flex mr-5">
+        <div class="flex mr-6">
           <%# renderの記述もhelperに移行できる確認 %>
           <% unless current_user.guest? %>
             <% if current_user.own?(post) %>
@@ -11,9 +11,9 @@
             <% else %>
               <%= render 'actions/bookmark_button', { post: post } %>
             <% end %>
-          <% end %>      
+          <% end %>
           <% unless current_user.guest? || post.draft? %>
-            <div class="flex justify-end mx-2">
+            <div class="flex justify-end mr-1 ml-1">
               <%= render 'actions/download_button', { post: post } %>
             </div>
           <% end %>
