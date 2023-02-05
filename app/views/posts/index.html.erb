@@ -2,8 +2,14 @@
 <section class="text-gray-600 body-font">
   <div class="container my-1 mb-5 mx-auto flex flex-col px-5 justify-center items-center">
     <p class="text-center text-xl text-black-200 opacity-90"><%= t '.title' %></p>
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
+      <%# 通常のページネーション %>
+      <%# <%= render @posts %>
+      <%# <div class="flex justify-center mt-10"> %>
+      <%# <%= paginate @posts %>
+      <%# </div> %>
+      <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
+        <%= render @posts %>
+        <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
+      <% end %>
   </div>
 </section>
