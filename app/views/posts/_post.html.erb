@@ -13,7 +13,7 @@
             <% end %>
           <% end %>
           <% unless current_user.guest? || post.draft? %>
-            <div class="flex justify-end mr-1 ml-1">
+            <div class="flex justify-end ml-2">
               <%= render 'actions/download_button', { post: post } %>
             </div>
           <% end %>
