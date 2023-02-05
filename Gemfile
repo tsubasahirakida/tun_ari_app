@@ -91,3 +91,6 @@ gem 'aws-sdk'
 
 #メタタグの設定
 gem 'meta-tags'
+
+#ページネーション
+gem 'kaminari'

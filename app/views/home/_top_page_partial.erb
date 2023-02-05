@@ -41,9 +41,7 @@
       </div>
     </div>
     <p class="mt-10 lg:my-5 lg:mb-10 text-xl underline decoration-pink-300 decoration-15 mb-5">下のボタンから遊んでみる？⤵︎</p>
-    <div class="lg:flex">
-      <%= link_to 'ゲストログインして投稿を見る♡', guest_login_path, data: { turbo_method: :post}, class: 'w-3/4 lg:w-fit my-5 lg:my-0 lg:mx-5 btn btn-outline btn-secondary'%>
-      <%= link_to '会員登録してカードを作る♡', new_user_path, class: 'w-3/4 lg:w-fit lg:mx-5 btn btn-outline btn-secondary' %>
-    </div>
+    <%= link_to 'ゲストログインして投稿を見る♡', guest_login_path, data: { turbo_method: :post}, class: 'w-1/2 lg:w-1/3 my-5 btn btn-outline btn-secondary'%>
+    <%= link_to '会員登録してカードを作る♡', new_user_path, class: 'w-1/2 lg:w-1/3 mt-3 btn btn-outline btn-secondary' %>
   </div>
 </section>
