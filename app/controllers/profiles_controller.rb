@@ -7,15 +7,15 @@ class ProfilesController < ApplicationController
   end
 
   def my_archivepost
-    @posts = current_user.posts.archive.order(created_at: :desc)
+    @posts = current_user.posts.archive.order(created_at: :desc).page(params[:page])
   end
 
   def my_draftpost
-    @posts = current_user.posts.draft.order(created_at: :desc)
+    @posts = current_user.posts.draft.order(created_at: :desc).page(params[:page])
   end
 
   def my_bookmarkpost
-    @posts = current_user.bookmark_posts.order(created_at: :desc)
+    @posts = current_user.bookmark_posts.order(created_at: :desc).page(params[:page])
   end
 
 
