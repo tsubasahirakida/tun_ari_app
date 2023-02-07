@@ -1,13 +1,16 @@
 <% content_for(:title, t('.title')) %>
 <section class="text-gray-600 body-font">
   <div class="container my-1 mb-5 mx-auto flex flex-col px-5 justify-center items-center">
-    <p class="text-center text-xl text-black-200 opacity-90"><%= t '.title' %></p>
-    <% if @posts.present? %>
-      <% @posts.each do |post| %>
-        <%= render post %>
+    <p class="mb-5 text-center text-xl text-black-200 opacity-90 underline decoration-pink-300 decoration-5"><%= t '.title' %></p>
+    <%= turbo_frame_tag "posts-page-#{@posts.current_page}" do %>
+      <% if @posts.present? %>
+        <div class="lg:container lg:flex lg:flex-wrap lg:justify-center lg:items-center">
+          <%= render @posts %>
+        </div>
+      <% else %>
+        <%= render 'no_post' %>
       <% end %>
-    <% else %>
-      <%= render 'no_post' %>
+      <%= turbo_frame_tag "posts-page-#{@posts.next_page}", loading: :lazy, src: path_to_next_page(@posts) %>
     <% end %>
   </div>
 </section>

@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def my_publishpost
-    @posts = current_user.posts.publish.order(created_at: :desc)
+    @posts = current_user.posts.publish.order(created_at: :desc).page(params[:page])
   end
 
   def my_archivepost
