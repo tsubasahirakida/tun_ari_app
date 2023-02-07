@@ -103,11 +103,11 @@ class PostsController < ApplicationController
     #modelにscope化
     to = Time.current.at_end_of_day
     from = (to - 6.days).at_beginning_of_day
-    @posts = Post.includes(:aied_users).publish
+    @posts = Kaminari.paginate_array(Post.includes(:aied_users).publish
                  .sort_by { |x|
-      x.aied_users.includes(:ais).where(ais: {created_at: from...to}).size}.reverse
+      x.aied_users.includes(:ais).where(ais: {created_at: from...to}).size}.reverse).page(params[:page])
   end
-
+      
   def tundere_boosting
     #modelにscope化
     to = Time.current.at_end_of_day
