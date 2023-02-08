@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
     @posts = current_user.bookmark_posts.order(created_at: :desc).page(params[:page])
   end
 
+  def show; end
 
   private
 

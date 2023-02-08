@@ -1,0 +1,17 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-gray-600 body-font">
+  <div class="container my-1 mb-5 mx-auto flex flex-col px-5 justify-center items-center">
+    <p class="mb-5 text-center text-xl text-black-200 opacity-90 underline decoration-pink-300 decoration-5"><%= t '.title' %></p>
+    <table class="table border mt-5 border-grey-300">
+      <tr>
+        <th scope="row"><%= t(User.human_attribute_name(:name)) %></th>
+        <td><%= current_user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row"><%= t(User.human_attribute_name(:email)) %></th>
+        <td><%= current_user.email %></td>
+      </tr>
+    </table>
+    <%= link_to t('defaults.edit'), '#', class: 'btn btn-success btn-outline mt-5' %>
+  </div>
+</section>

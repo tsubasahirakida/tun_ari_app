@@ -70,6 +70,8 @@ ja:
     destroy:
       success: 'ブックマークを外しました'
   profiles:
+    show:
+      title: 'ユーザー詳細画面♡'
     my_publishpost:
       title: '公開した投稿一覧♡'
     my_archivepost:
