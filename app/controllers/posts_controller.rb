@@ -21,8 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    #ThumbnailCreatorをImageCreatorに変更
-    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    @post.post_image = CardCreator.build(@post.body, @post.character_id)
     set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
@@ -43,8 +42,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    #ThumbnailCreatorをImageCreatorに変更
-    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    @post.post_image = CardCreator.build(@post.body, @post.character_id)
     set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
