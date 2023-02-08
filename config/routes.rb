@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resources :tuns, only: %i[create destroy]
   resources :deres, only: %i[create destroy]
   resources :bookmarks, only: %i[create destroy]
-  resource :profile, only: %i[show] do
+  resource :profile, only: %i[show edit update] do
     collection do
       get 'my_publishpost'
       get 'my_archivepost'

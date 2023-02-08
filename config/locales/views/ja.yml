@@ -15,6 +15,7 @@ ja:
     post: '投稿'
     search_word: '検索ワード'
     edit: '編集'
+    update: '更新'
     password_reset: 'パスワードリセット'
     unspecified: '指定なし'
     show: '詳細'
@@ -71,7 +72,12 @@ ja:
       success: 'ブックマークを外しました'
   profiles:
     show:
-      title: 'ユーザー詳細画面♡'
+      title: 'プロフィール詳細画面♡'
+    edit:
+      title: 'プロフィール編集画面♡'
+    update:
+      success: 'プロフィールを編集できたよ♡'
+      fail: 'プロフィールの編集に失敗しました'
     my_publishpost:
       title: '公開した投稿一覧♡'
     my_archivepost:
