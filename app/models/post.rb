@@ -17,4 +17,5 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   mount_uploader :post_image, PostImageUploader
+  
 end

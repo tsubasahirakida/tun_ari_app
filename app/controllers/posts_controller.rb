@@ -21,16 +21,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    #private下に変更
-    @post.status = if params[:commit] == '下書きにする'
-                     0
-                   elsif params[:commit] == '非公開にする'
-                     1
-                   else
-                     2
-                   end
     #ThumbnailCreatorをImageCreatorに変更
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -40,16 +33,7 @@ class PostsController < ApplicationController
 
   def status_update
     @post = Post.find_by(id: params[:id])
-    #private下に変更
-    if params[:commit] == '下書きにする'
-      @post.status = 0
-    elsif params[:commit] == '非公開にする'
-      @post.update(status: 1)
-    elsif params[:commit] == '公開する'
-      @post.status = 2
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -61,16 +45,7 @@ class PostsController < ApplicationController
     @post.update(post_params)
     #ThumbnailCreatorをImageCreatorに変更
     @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
-    #private下に変更
-    if params[:commit] == '下書きにする'
-      @post.status = 0
-    elsif params[:commit] == '非公開にする'
-      @post.status = 1
-    elsif params[:commit] == '公開する'
-      @post.status = 2
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -133,5 +108,15 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
+  end
+
+  def set_status(post)
+    @post.status = if params[:commit] == '下書きにする'
+                     0
+                   elsif params[:commit] == '非公開にする'
+                     1
+                   else
+                     2
+                   end
   end
 end
