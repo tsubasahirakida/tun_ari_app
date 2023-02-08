@@ -56,9 +56,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('.success'), status: :see_other
   end
 
-  #処理ないこと明示
-  def character_set
-  end
+  def character_set;end
 
   def template_set_new
     @templates = PostBodyTemplate.all.order(:created_at)
@@ -73,26 +71,15 @@ class PostsController < ApplicationController
   end
 
   def ai_boosting
-    #modelにscope化
-    to = Time.current.at_end_of_day
-    from = (to - 6.days).at_beginning_of_day
-    @posts = Kaminari.paginate_array(Post.includes(:aied_users).publish
-                 .sort_by { |x|
-      x.aied_users.includes(:ais).where(ais: {created_at: from...to}).size}.reverse).page(params[:page])
+    @posts = Kaminari.paginate_array(Post.ai_boostings).page(params[:page])
   end
       
   def tundere_boosting
-    #modelにscope化
-    to = Time.current.at_end_of_day
-    from = (to - 6.days).at_beginning_of_day
-    @posts = Kaminari.paginate_array(Post.includes(:tuned_users, :dered_users).publish
-                 .sort_by { |x|
-      x.tuned_users.includes(:tuns).where(tuns: {created_at: from...to}).size + x.dered_users.includes(:deres).where(deres: {created_at: from...to}).size}.reverse).page(params[:page])
+    @posts = Kaminari.paginate_array(Post.tundere_boostings).page(params[:page])
   end
 
   def download
-    #find_byに変更
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
     image = @post.post_image
     send_data(image.read,
               filename: "#{@post.body}.png")
