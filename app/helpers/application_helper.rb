@@ -7,7 +7,6 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: '~ツンあり~',
-      title: 'ツンデレ感謝カードを作ろう！♡',
       reverse: true,
       charset: 'utf-8',
       description: 'このアプリでは、「愛・ツン・デレ」に溢れた感謝カードが作れるよ！気になるあの子や仲良しあの子、お世話になった人に想いを伝えよう♡！',
@@ -25,7 +24,7 @@ module ApplicationHelper
         description: 'このアプリでは、「愛・ツン・デレ」に溢れた感謝カードが作れるよ！気になるあの子や仲良しあの子、お世話になった人に想いを伝えよう♡！',
         type: 'website',
         url: request.original_url,
-        image: image_url('ツンあり.png'),
+        image: image_url('ogp.png'),
         locale: 'ja_JP',
       },
       twitter: {
