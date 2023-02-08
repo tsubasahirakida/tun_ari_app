@@ -1,4 +1,4 @@
-class ThumbnailCreator
+class CardCreator
   require 'mini_magick'
 
   GRAVITY = 'center'.freeze

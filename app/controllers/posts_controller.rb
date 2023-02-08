@@ -21,16 +21,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    #private下に変更
-    @post.status = if params[:commit] == '下書きにする'
-                     0
-                   elsif params[:commit] == '非公開にする'
-                     1
-                   else
-                     2
-                   end
-    #ThumbnailCreatorをImageCreatorに変更
-    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
+    @post.post_image = CardCreator.build(@post.body, @post.character_id)
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -40,16 +32,7 @@ class PostsController < ApplicationController
 
   def status_update
     @post = Post.find_by(id: params[:id])
-    #private下に変更
-    if params[:commit] == '下書きにする'
-      @post.status = 0
-    elsif params[:commit] == '非公開にする'
-      @post.update(status: 1)
-    elsif params[:commit] == '公開する'
-      @post.status = 2
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -59,18 +42,8 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    #ThumbnailCreatorをImageCreatorに変更
-    @post.post_image = ThumbnailCreator.build(@post.body, @post.character_id)
-    #private下に変更
-    if params[:commit] == '下書きにする'
-      @post.status = 0
-    elsif params[:commit] == '非公開にする'
-      @post.status = 1
-    elsif params[:commit] == '公開する'
-      @post.status = 2
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @post.post_image = CardCreator.build(@post.body, @post.character_id)
+    set_status(@post)
     if @post.save
       redirect_to post_path(@post), success: t('.success')
     else
@@ -83,9 +56,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('.success'), status: :see_other
   end
 
-  #処理ないこと明示
-  def character_set
-  end
+  def character_set;end
 
   def template_set_new
     @templates = PostBodyTemplate.all.order(:created_at)
@@ -100,26 +71,15 @@ class PostsController < ApplicationController
   end
 
   def ai_boosting
-    #modelにscope化
-    to = Time.current.at_end_of_day
-    from = (to - 6.days).at_beginning_of_day
-    @posts = Kaminari.paginate_array(Post.includes(:aied_users).publish
-                 .sort_by { |x|
-      x.aied_users.includes(:ais).where(ais: {created_at: from...to}).size}.reverse).page(params[:page])
+    @posts = Kaminari.paginate_array(Post.ai_boostings).page(params[:page])
   end
       
   def tundere_boosting
-    #modelにscope化
-    to = Time.current.at_end_of_day
-    from = (to - 6.days).at_beginning_of_day
-    @posts = Kaminari.paginate_array(Post.includes(:tuned_users, :dered_users).publish
-                 .sort_by { |x|
-      x.tuned_users.includes(:tuns).where(tuns: {created_at: from...to}).size + x.dered_users.includes(:deres).where(deres: {created_at: from...to}).size}.reverse).page(params[:page])
+    @posts = Kaminari.paginate_array(Post.tundere_boostings).page(params[:page])
   end
 
   def download
-    #find_byに変更
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
     image = @post.post_image
     send_data(image.read,
               filename: "#{@post.body}.png")
@@ -133,5 +93,15 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
+  end
+
+  def set_status(post)
+    @post.status = if params[:commit] == '下書きにする'
+                     0
+                   elsif params[:commit] == '非公開にする'
+                     1
+                   else
+                     2
+                   end
   end
 end
