@@ -6,7 +6,7 @@ module ApplicationHelper
   end
   def default_meta_tags
     {
-      site: '~ツンあり~',
+      site: 'ツンあり',
       title: 'ツンデレ感謝カードを作ろう！♡',
       reverse: true,
       charset: 'utf-8',
@@ -20,12 +20,12 @@ module ApplicationHelper
         { href: image_url('favi.png'), rel: 'apple-touch-icon', sizes: '180x180' },
       ],
       og: {
-        site_name: '~ツンあり~',
+        site_name: 'ツンあり',
         title: 'ツンデレ感謝カードを作ろう！♡',
         description: 'このアプリでは、「愛・ツン・デレ」に溢れた感謝カードが作れるよ！気になるあの子や仲良しあの子、お世話になった人に想いを伝えよう♡！',
         type: 'website',
         url: request.original_url,
-        image: image_url('ツンあり.png'),
+        image: image_url('ogp.png'),
         locale: 'ja_JP',
       },
       twitter: {
