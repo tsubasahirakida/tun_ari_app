@@ -1,0 +1,18 @@
+<% content_for(:title, t('.title')) %>
+<section class="flex justify-center w-screen items-center">
+  <div class="w-full md:w-1/2 flex flex-col items-center">
+    <p class="mb-5 text-center text-xl text-black-200 opacity-90 underline decoration-pink-300 decoration-5"><%= t '.title' %></p>
+    <div class="w-3/4 mb-5 lg:w-1/2">
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :name, class: "label" %>
+        <%= f.text_field :name,  class: "w-full p-5 input input-bordered rounded" %>
+        <%= f.label :email, class: "label" %>
+        <%= f.email_field :email, class: "w-full p-5 input input-bordered rounded" %>
+        <div class="pt-5">
+          <%= f.submit t('defaults.update'), class: "btn btn-success btn-outline w-full rounded" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
