@@ -26,6 +26,7 @@ module TunAriApp
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.time_zone = 'Tokyo'	
     config.active_record.default_timezone = :utc
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
     
     config.generators do |g|
       g.assets false
