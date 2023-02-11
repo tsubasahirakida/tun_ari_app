@@ -8,9 +8,12 @@ https://www.tun-ari.com/
 笑いを交えて  
 感謝を伝えるサービスです  
 
-## 使い方
+## 使い方  
  　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
-<img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">
+<img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
+
+## 作れるカード  
+<img src="app/assets/images/top2.png" width="50%" heigth="50%"> 
 
 ## 使用技術  
 ### フロントエンド  
