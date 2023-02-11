@@ -1,8 +1,8 @@
 <% set_meta_tags title: t('.title') %>
-<div class="flex justify-center w-screen items-center">
+<section class="flex justify-center w-screen items-center">
   <div class="w-full md:w-1/2 flex flex-col items-center">
-    <h1 class="text-center text-2xl font-bold text-pink-300 mb-6"><%= t('.title') %></h1>
-    <div class="w-3/4 mb-6">
+    <h1 class="text-center text-2xl font-bold text-pink-300 mb-6 mr-3"><%= t('.title') %></h1>
+    <div class="w-3/4 mb-5 lg:w-1/2">
       <%= form_with model: @user, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= f.label :name, class: "label" %>
@@ -28,4 +28,4 @@
       </div>-->
     </div> 
   </div>
-</div>
+</section>
