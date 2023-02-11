@@ -1,4 +1,4 @@
-<img src="app/assets/images/ツンあり.png" width="400" height="300">
+<img src="app/assets/images/ツンあり.png" width="100%" height="600">
 ## ツンあり
 https://www.tun-ari.com/
 
