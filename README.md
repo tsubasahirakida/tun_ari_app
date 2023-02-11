@@ -17,8 +17,8 @@ https://www.tun-ari.com/
 - HTML  
 - CSS-tailwind CSS/daisyUI  
 - Hotwire(Rails)  
- - Turbo Frames  
- - Turbo Streams  
+  - Turbo Frames  
+  - Turbo Streams  
 
 ### バックエンド  
 - Ruby 3.1.2  
