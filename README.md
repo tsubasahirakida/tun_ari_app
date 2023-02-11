@@ -9,7 +9,7 @@ https://www.tun-ari.com/
 感謝を伝えるサービスです  
 
 <details>
-<summary>■メインのターゲットユーザー </summary>
+<summary>メインのターゲットユーザー </summary>  
 ①感謝の言葉が照れ臭く、感謝の言葉を素直に言いたいけど言えない人  
 ②面白く感謝を伝えられるコンテンツを探している人  
 </details>
