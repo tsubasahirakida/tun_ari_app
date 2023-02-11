@@ -12,25 +12,25 @@ https://www.tun-ari.com/
  　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">
 
-## 使用技術    
-### フロントエンド
-・ HTML
-・ CSS-tailwind CSS/daisyUI
-・ Hotwire(Rails)
- ・ Turbo Frames
- ・ Turbo Streams
+## 使用技術  
+### フロントエンド  
+・ HTML  
+・ CSS-tailwind CSS/daisyUI  
+・ Hotwire(Rails)  
+ ・ Turbo Frames  
+ ・ Turbo Streams  
 
-### バックエンド
-Ruby 3.1.2
-Rails 7.0.4
-主要なgem
+### バックエンド  
+Ruby 3.1.2  
+Rails 7.0.4  
+主要なgem  
 
-### バックエンド
-・ Heroku
-・ postgreSQL
-・ AWS S3
+### バックエンド  
+・ Heroku  
+・ postgreSQL  
+・ AWS S3  
 
-[■画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
+■[画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
 
 ■ER図  
 
