@@ -1,4 +1,4 @@
-[![Image from Gyazo](https://i.gyazo.com/f215fb8f2e96f8fb21d316822a94ae2a.png)](https://gyazo.com/f215fb8f2e96f8fb21d316822a94ae2a)
+<img src="app/assets/img/ツンあり.png">
 ## ツンあり
 https://www.tun-ari.com/
 
