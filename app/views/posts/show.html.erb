@@ -72,7 +72,7 @@
       </div>
       <div>
         <% if @post.archive? || @post.publish? %>
-          <%= link_to "https://twitter.com/share?url=https://www.tun-ari.com/posts/#{@post.id}/tweet/&text=#{@post.sendername}さんへ",
+          <%= link_to "https://twitter.com/share?url=https://www.tun-ari.com/posts/#{@post.id}/tweet/&text=#{@post.user.name}さんから#{@post.sendername}さんへのメッセージだよ！♡%0a%23ツンあり%0a",
             title: 'Twitter', target: '_blank', class: 'w-60 btn btn-outline my-1 bg-sky-500 hover:bg-sky-400 hover:border-white text-white' do %>
             <i class="fa-brands fa-twitter fa-lg px-1"></i>Twitterにシェア<i class="fas fa-external-link-alt px-1"></i>
           <% end %>
