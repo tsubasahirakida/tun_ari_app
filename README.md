@@ -16,7 +16,9 @@ https://www.tun-ari.com/
 ## 使用技術  
 ### フロントエンド  
 - HTML  
-- CSS-tailwind CSS/daisyUI  
+- CSS  
+  - tailwind CSS  
+  - daisyUI  
 - Hotwire(Rails)  
   - Turbo Frames  
   - Turbo Streams  
