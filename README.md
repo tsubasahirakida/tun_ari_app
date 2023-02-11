@@ -9,7 +9,7 @@ https://www.tun-ari.com/
 感謝を伝えるサービスです  
 
 ## 使い方
-#### 　　　①キャラクターを選ぶ 　 　　　　　　②文字を入力する  　　 　　　　　     ③投稿のいいね
+ 　　　①キャラクターを選ぶ 　 　　　　　　②文字を入力する  　　 　　　　　     ③投稿のいいね
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">
 
 
