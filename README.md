@@ -24,12 +24,12 @@ https://www.tun-ari.com/
 - Ruby 3.1.3  
 - Rails 7.0.4  
 - 主要なgem  
-  - 'carrierwave'
-  - 'mini_magick'
-  - 'sorcery'
-  - 'ridgepole'
+  - carrierwave
+  - mini_magick
+  - sorcery
+  - ridgepole
 
-### バックエンド  
+### インフラ  
 - Heroku  
 - postgreSQL  
 - AWS S3  
