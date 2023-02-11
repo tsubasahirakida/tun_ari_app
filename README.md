@@ -1,4 +1,4 @@
-<img src="app/assets/img/ツンあり.png">
+<img src="app/assets/images/ツンあり.png">
 ## ツンあり
 https://www.tun-ari.com/
 
