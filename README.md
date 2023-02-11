@@ -106,7 +106,7 @@ MVP後に実装したい機能
 
 ■ER図  
 [![Image from Gyazo](https://i.gyazo.com/8bce151aed2262c523ecabe89383b38f.png)](https://gyazo.com/8bce151aed2262c523ecabe89383b38f)
-<img src="[![Image from Gyazo](https://i.gyazo.com/8bce151aed2262c523ecabe89383b38f.png)](https://gyazo.com/8bce151aed2262c523ecabe89383b38f)" width="320px">
+<img src="[https://gyazo.com/8bce151aed2262c523ecabe89383b38f](https://i.gyazo.com/8bce151aed2262c523ecabe89383b38f.png)" width="320px">
 ■スケジュール  
 README〜ER図作成：12/25 〆切  
 メイン機能実装：12/25 - 1/20  
