@@ -1,4 +1,4 @@
-[![Image from Gyazo](https://i.gyazo.com/cccb741f2bd0a2baec9ece1d02c201cb.png)](https://gyazo.com/cccb741f2bd0a2baec9ece1d02c201cb)　　
+[![Image from Gyazo](https://i.gyazo.com/90a88e20eb87946f263020ff778fd1c2.png)](https://gyazo.com/90a88e20eb87946f263020ff778fd1c2)
 
 ## ツンあり
 https://www.tun-ari.com/
