@@ -1,4 +1,5 @@
-<img src="app/assets/images/ツンあり.png" width="600" height="450">
+[![Image from Gyazo](https://i.gyazo.com/cccb741f2bd0a2baec9ece1d02c201cb.png)](https://gyazo.com/cccb741f2bd0a2baec9ece1d02c201cb)　　
+
 ## ツンあり
 https://www.tun-ari.com/
 
