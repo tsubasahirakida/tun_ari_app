@@ -21,9 +21,13 @@ https://www.tun-ari.com/
   - Turbo Streams  
 
 ### バックエンド  
-- Ruby 3.1.2  
+- Ruby 3.1.3  
 - Rails 7.0.4  
 - 主要なgem  
+  - 'carrierwave'
+  - 'mini_magick'
+  - 'sorcery'
+  - 'ridgepole'
 
 ### バックエンド  
 - Heroku  
