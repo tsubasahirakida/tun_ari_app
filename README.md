@@ -14,21 +14,21 @@ https://www.tun-ari.com/
 
 ## 使用技術  
 ### フロントエンド  
-・ HTML  
-・ CSS-tailwind CSS/daisyUI  
-・ Hotwire(Rails)  
- ・ Turbo Frames  
- ・ Turbo Streams  
+- HTML  
+- CSS-tailwind CSS/daisyUI  
+- Hotwire(Rails)  
+ - Turbo Frames  
+ - Turbo Streams  
 
 ### バックエンド  
-Ruby 3.1.2  
-Rails 7.0.4  
-主要なgem  
+- Ruby 3.1.2  
+- Rails 7.0.4  
+- 主要なgem  
 
 ### バックエンド  
-・ Heroku  
-・ postgreSQL  
-・ AWS S3  
+- Heroku  
+- postgreSQL  
+- AWS S3  
 
 ■[画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
 
