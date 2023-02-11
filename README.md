@@ -6,14 +6,12 @@ https://www.tun-ari.com/
 ## サービス概要  
 感謝の言葉を素直に言いたいけど言えない人に    
 笑いを交えて  
-感謝を伝えるサービスです  
+感謝を伝えるサービスです。  
+特にツンデレ言葉に特化して、作成しやすくなっています。  
 
 ## 使い方  
  　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
-
-## 作れるカードの例  
-<img src="app/assets/images/top2.png" width="80%" heigth="50%"> 
 
 ## 使用技術  
 ### フロントエンド  
