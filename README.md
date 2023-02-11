@@ -105,8 +105,8 @@ MVP後に実装したい機能
 ■[画面遷移図](https://www.figma.com/file/pbRvQN5oIm0g430JMRPA5n/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=2d0GptdcKxzEz0rD-1)
 
 ■ER図 
+<br>
 [![Image from Gyazo](https://i.gyazo.com/8bce151aed2262c523ecabe89383b38f.png)](https://gyazo.com/8bce151aed2262c523ecabe89383b38f)
-<img src="https://gyazo.com/8bce151aed2262c523ecabe89383b38f" width="320px">
 ■スケジュール  
 README〜ER図作成：12/25 〆切  
 メイン機能実装：12/25 - 1/20  
