@@ -13,6 +13,8 @@ https://www.tun-ari.com/
  　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
 
+![タイトルなし](https://user-images.githubusercontent.com/108877563/218453536-766587cc-5500-4420-a001-20ba10e27a2a.gif)
+
 ## 使用技術  
 ### フロントエンド  
 - HTML  
