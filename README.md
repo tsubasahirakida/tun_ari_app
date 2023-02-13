@@ -15,7 +15,7 @@ https://www.tun-ari.com/
 
 ![タイトルなし](https://user-images.githubusercontent.com/108877563/218453536-766587cc-5500-4420-a001-20ba10e27a2a.gif)
 ![タイトルなし2](https://user-images.githubusercontent.com/108877563/218454108-a8891298-fc3f-48ef-9728-b23e26639b65.gif)
-![demo3](https://user-images.githubusercontent.com/108877563/218454728-76dea8b3-a5ab-4085-9de9-ebe2bf5938c7.mov)
+[demo](https://user-images.githubusercontent.com/108877563/218454728-76dea8b3-a5ab-4085-9de9-ebe2bf5938c7.mov)
 ## 使用技術  
 ### フロントエンド  
 - HTML  
