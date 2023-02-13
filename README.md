@@ -14,7 +14,7 @@ https://www.tun-ari.com/
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
 
 ![タイトルなし](https://user-images.githubusercontent.com/108877563/218453536-766587cc-5500-4420-a001-20ba10e27a2a.gif)
-
+![タイトルなし2](https://user-images.githubusercontent.com/108877563/218454108-a8891298-fc3f-48ef-9728-b23e26639b65.gif)
 ## 使用技術  
 ### フロントエンド  
 - HTML  
