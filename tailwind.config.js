@@ -14,6 +14,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      darkMode: 'class',
       fontFamily: {
         fancy: ["Zen Kurenaido"],
       },

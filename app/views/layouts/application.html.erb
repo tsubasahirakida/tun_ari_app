@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
   <head>
     <%= display_meta_tags(default_meta_tags) %>
     <title><%= page_title(yield(:title)) %></title>
@@ -20,7 +20,7 @@
     </script>
   </head>
 
-  <body class="font-fancy">
+  <body class="font-fancy dark:bg-gray-200">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
