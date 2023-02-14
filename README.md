@@ -10,8 +10,6 @@ https://www.tun-ari.com/
 特にツンデレ言葉に特化して、作成しやすくなっています。  
 
 ## 使い方  
- 　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
-<img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
 ### 投稿方法
 ![投稿例](https://user-images.githubusercontent.com/108877563/218859701-e21b6ad8-efd3-4734-8ff1-5313d50667fc.gif)
 ### みんなの投稿をいいね
