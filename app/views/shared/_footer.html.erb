@@ -1,13 +1,19 @@
-<footer class="footer footer-center p-5 bg-base-200 text-base-content w-screen sticky bottom-0">
+<footer class="footer footer-center p-5 bg-base-200 dark:bg-pink-200 dark:text-white-300 text-base-content w-screen sticky bottom-0">
   <div class="grid grid-flow-col gap-10">
-    <%= link_to "タイムライン", posts_path %>
-    <%= link_to "愛急上昇", ai_boosting_posts_path %>
-    <%= link_to "ツンデレ急上昇", tundere_boosting_posts_path %>
+    <%= link_to "タイムライン一覧", posts_path, class:'break-words' %>
+    <%= link_to "愛急上昇一覧", ai_boosting_posts_path %>
+    <%= link_to "ツンデレ急上昇一覧", tundere_boosting_posts_path %>
+    <div class="xs:invisible post-btn bg-pink-300">
     <% if current_user.guest? %>
-      <%= link_to "投稿する", '#', data: { turbo_method: "get",
-      turbo_confirm: "ごめんね！\r\n会員登録しないと投稿できないんだ🥲"} %>
-    <% else %>
-      <%= link_to "投稿する", character_set_posts_path %>
+      <%= link_to '#', data: { turbo_method: "get",
+      turbo_confirm: "ごめんね！\r\n会員登録しないと投稿できないんだ🥲"} do %>
+      <i class="fa-regular fa-plus"></i>
     <% end %>
+    <% else %>
+      <%= link_to character_set_posts_path do %>
+        <i class="fa-regular fa-plus"></i>
+      <% end %>
+    <% end %>
+    </div>
   </div>
 </footer>

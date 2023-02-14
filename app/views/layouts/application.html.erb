@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
   <head>
     <%= display_meta_tags(default_meta_tags) %>
     <title><%= page_title(yield(:title)) %></title>
@@ -20,7 +20,7 @@
     </script>
   </head>
 
-  <body class="font-fancy">
+  <body class="font-fancy dark:bg-gray-200">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
@@ -34,6 +34,4 @@
       <%= render 'shared/before_login_footer' %>
     <% end %>
   </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
-  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-14/js/5-1-14.js"></script>
 </html>
