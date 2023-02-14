@@ -12,8 +12,7 @@ https://www.tun-ari.com/
 ## 使い方  
  　　　①キャラクターを選ぶ 　 　　　　　②文字を入力する  　　 　　　　　   ③投稿のいいね
 <img src="app/assets/images/ツンあり_readme2.png" width="90%" heigth="90%">  
-
-[![Image from Gyazo](https://i.gyazo.com/554a5202b9872423b00138d820f0f9d8.gif)](https://gyazo.com/554a5202b9872423b00138d820f0f9d8)
+[![Image from Gyazo](https://i.gyazo.com/def22c392204d23426f84b35914ea891.gif)](https://gyazo.com/def22c392204d23426f84b35914ea891)
 
 ## 使用技術  
 ### フロントエンド  
