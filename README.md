@@ -10,9 +10,9 @@ https://www.tun-ari.com/
 特にツンデレ言葉に特化して、作成しやすくなっています。  
 
 ## 使い方  
-### 投稿方法
+### ♡投稿方法♡
 ![投稿例](https://user-images.githubusercontent.com/108877563/218859701-e21b6ad8-efd3-4734-8ff1-5313d50667fc.gif)
-### みんなの投稿をいいね
+### ♡みんなの投稿をいいね♡
 ![いいねのGIF](https://user-images.githubusercontent.com/108877563/218861282-51ae5c0f-aa63-4db9-a87a-38a3217bb582.gif)
 
 
