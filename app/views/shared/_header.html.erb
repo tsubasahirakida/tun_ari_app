@@ -17,10 +17,21 @@
           </ul>
         </li>
         <% end %>
-        <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
+        <div class="hidden xs:inline">
+          <li>
+            <% if current_user.guest? %>
+              <%= link_to '投稿する♡', '#', data: { turbo_method: "get",
+                turbo_confirm: "ごめんね！\r\n会員登録しないと投稿できないんだ🥲"} %>
+            <% else %>
+              <%= link_to '投稿する♡',character_set_posts_path %>
+            <% end %>
+          </li>
+        </div>
         <% if current_user.guest? %>
           <li><%= link_to '会員登録♡', new_user_path, class: 'nav-link' %></li>
         <% end %>
+        <li><%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %></li>
+        </li>
       </ul>
     </div>
   </div>

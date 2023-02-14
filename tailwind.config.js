@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         fancy: ["Zen Kurenaido"],
       },
+      screens: {
+        'xs': '440px',
+      },
     },
   }
 }
