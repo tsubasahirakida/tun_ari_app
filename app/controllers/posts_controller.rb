@@ -13,6 +13,8 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.character_id = params[:character_id]
     @post.body = params[:tempalate_body]
+    # AI自動生成機能のFormオブジェクトのインスタンス作成
+    @generate_ai_modal_form = GenerateAiModalForm.new
   end
 
   def edit
@@ -56,7 +58,8 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('.success'), status: :see_other
   end
 
-  def character_set;end
+  def character_set
+  end
 
   def template_set_new
     @templates = PostBodyTemplate.all.order(:created_at)
@@ -73,7 +76,7 @@ class PostsController < ApplicationController
   def ai_boosting
     @posts = Kaminari.paginate_array(Post.ai_boostings).page(params[:page])
   end
-      
+
   def tundere_boosting
     @posts = Kaminari.paginate_array(Post.tundere_boostings).page(params[:page])
   end
@@ -95,7 +98,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:character_id, :sendername, :body, :status, :post_image)
   end
 
-  def set_status(post)
+  def set_status(_post)
     @post.status = if params[:commit] == '下書きにする'
                      0
                    elsif params[:commit] == '非公開にする'

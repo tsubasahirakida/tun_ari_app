@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
-  post 'generate', to: 'openai_generate#create'
-
   resources :users, only: %i[new create]
   resources :posts do
     collection do
@@ -25,6 +23,7 @@ Rails.application.routes.draw do
       get 'template_set_edit'
       get 'ai_boosting'
       get 'tundere_boosting'
+      post 'generate_ai', to: 'generate_ai#create'
     end
     member do
       patch 'status_update'
