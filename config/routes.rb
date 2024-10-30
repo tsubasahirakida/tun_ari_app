@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
+  post 'generate', to: 'openai_generate#create'
+
   resources :users, only: %i[new create]
   resources :posts do
     collection do

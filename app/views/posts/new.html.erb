@@ -2,30 +2,116 @@
 <section class="text-gray-600 body-font">
   <div class="container my-1 mx-auto flex flex-col px-5 justify-center items-center">
     <p class="mb-3 text-center text-xl text-black-200 opacity-90"><%= t '.title' %></p>
-    <%= form_with model: @post, local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <div class="form-group flex flex-col">
-        <%= f.hidden_field :character_id, value: "#{@post.character_id}" %>
-        <div class="flex flex-row mt-5">
-          <p class="text-2xl pr-2">To:</p>
-          <%= f.text_field :sendername, class: 'form-control w-4/5'%>
-          <p class="text-2xl pl-2">へ</p>
+    <div class="flex flex-col">
+      <%= form_with model: @post, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="form-group flex flex-col">
+          <%= f.hidden_field :character_id, value: "#{@post.character_id}" %>
+          <div class="flex flex-row mt-5">
+            <p class="text-2xl pr-2">To:</p>
+            <%= f.text_field :sendername, class: 'form-control w-4/5'%>
+            <p class="text-2xl pl-2">へ</p>
+          </div>
+          <%= image_tag "#{@post.character_id}.png", size: '400x300', class: 'my-1' %>
+          <%= f.label :body, class: 'my-1' %>
+          <div class="flex flex-row">
+            <%= f.text_area :body, class: 'form-control w-full', rows: 5 %>
+          </div>
         </div>
-        <%= image_tag "#{@post.character_id}.png", size: '400x300', class: 'my-1' %>
-        <%= f.label :body, class: 'my-1' %>
-        <div class="flex flex-row">
-          <%= f.text_area :body, class: 'form-control w-full', rows: 5 %>
+        <div class="flex flex-col">
+          <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '下書きにする' %>
+          <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '非公開にする' %>
+          <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '公開する' %>
         </div>
-      </div>
-      <div class="flex flex-col">
-        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '下書きにする' %>
-        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '非公開にする' %>
-        <%= f.submit class: 'btn btn-outline btn-secondary my-1', value: '公開する' %>
       <% end %>
       <%= form_with model: @post, url: template_set_new_posts_path, method: :get, local: true do |f| %>
-        <%= f.hidden_field :character_id %>
-        <%= f.submit class: 'w-full btn btn-outline btn-primary my-1', value: 'テンプレートを見る' %>
+        <div class="flex flex-col">
+          <%= f.hidden_field :character_id %>
+          <%= f.submit class: 'btn btn-outline btn-primary my-1', value: 'テンプレートを見る' %>
+        </div>
       <% end %>
-      </div>
+      <!-- AIで自動生成するボタン -->
+      <button id='generateAiButton' class='w-full btn btn-outline btn-primary my-1' width='400'>AIで自動生成する</button>
+    </div>
   </div>
+  <!-- モーダル -->
+  <div id="generateModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="closeModal" class="close-button">&times;</span>
+      <h2>ツンデレ言葉生成</h2>
+      <form id="generateForm">
+        <label for="recipient">誰に:</label>
+        <input type="text" id="recipient" name="recipient" required>
+
+        <label for="message">どんな言葉:</label>
+        <input type="text" id="message" name="message" required>
+
+        <label for="tone">ツン具合:</label>
+        <select id="tone" name="tone">
+          <option value="かなりツン">かなりツン</option>
+          <option value="ややツン">ややツン</option>
+          <option value="あまあま">あまあま</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">自動生成する</button>
+      </form>
+    </div>
+  </div>
+  <style>
+    .modal {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+    }
+
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      color: #000;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const generateButton = document.getElementById("generateAiButton");
+      const generateModal = document.getElementById("generateModal");
+      const closeModal = document.getElementById("closeModal");
+
+      // ボタン押下でモーダル表示
+      generateButton.addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのリンク動作を無効化
+        generateModal.style.display = "block";
+      });
+
+      // モーダルの閉じるボタンで非表示
+      closeModal.addEventListener("click", function() {
+        generateModal.style.display = "none";
+      });
+
+      // モーダル外クリックで非表示
+      window.addEventListener("click", function(event) {
+        if (event.target === generateModal) {
+          generateModal.style.display = "none";
+        }
+      });
+    });
+  </script>
 </section>
