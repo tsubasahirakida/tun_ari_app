@@ -35,7 +35,7 @@
     <span id="closeModal" class="close-button">&times;</span>
     <h2>ツンデレ言葉生成</h2>
 
-    <%= form_with model: @generate_ai_modal_form, url: generate_ai_path, local: true do |f| %>
+    <%= form_with model: @generate_ai_form, url: generate_ai_posts_path, html: { id: 'generateAiForm' } do |f| %>
       <%= f.label :recipient, "誰に" %>
       <%= f.text_field :recipient, required: true %>
 
@@ -45,7 +45,50 @@
       <%= f.label :tone, "ツン具合" %>
       <%= f.select :tone, [["かなりツン", "かなりツン"], ["ややツン", "ややツン"], ["あまあま", "あまあま"]] %>
 
-      <%= f.submit "自動生成する", class: "btn btn-primary" %>
+      <%= f.submit "自動生成する", id: 'generateFetchButton', class: "btn btn-primary" %>
     <% end %>
+
+    <div>
+      <label for="generatedText">生成された言葉:</label>
+      <input type="text" id="generatedText" readonly>
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const generateFetchButton = document.getElementById("generateFetchButton");
+    const form = document.getElementById("generateAiForm");
+
+    generateFetchButton.addEventListener("click", async function(event) {
+      event.preventDefault(); // 通常のフォーム送信を防ぐ
+
+      // フォームデータの取得
+      const formData = new FormData(form);
+      const data = {
+        recipient: formData.get("generate_ai_form[recipient]"),
+        message: formData.get("generate_ai_form[message]"),
+        tone: formData.get("generate_ai_form[tone]")
+      };
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+          },
+          body: JSON.stringify({ generate_ai_form: data })
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          document.getElementById("generatedText").value = result.generated_text;
+        } else {
+          console.error("エラーが発生しました");
+        }
+      } catch (error) {
+        console.error("リクエストに失敗しました", error);
+      }
+    });
+  });
+</script>
