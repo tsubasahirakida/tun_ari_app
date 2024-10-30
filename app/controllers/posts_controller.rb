@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post.character_id = params[:character_id]
     @post.body = params[:tempalate_body]
     # AI自動生成機能のFormオブジェクトのインスタンス作成
-    @generate_ai_modal_form = GenerateAiModalForm.new
+    @generate_ai_form = GenerateAiForm.new
   end
 
   def edit

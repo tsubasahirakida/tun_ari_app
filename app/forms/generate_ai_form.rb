@@ -1,4 +1,4 @@
-class GenerateAiModalForm
+class GenerateAiForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
