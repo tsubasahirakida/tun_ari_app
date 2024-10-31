@@ -1,3 +1,5 @@
+require 'openai'
+
 class GenerateAiController < ApplicationController
   def create
     # フォームデータの取得
@@ -23,10 +25,28 @@ class GenerateAiController < ApplicationController
     params.require(:generate_ai_form).permit(:recipient, :message, :tone)
   end
 
-  # OpenAI APIの呼び出し処理（ダミー実装）
+  # OpenAI APIの呼び出し処理
   def call_openai_api(form_data)
+    client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
+    binding.pry
+    # プロンプトを生成
     prompt = "#{form_data.recipient}に対する#{form_data.tone}な言葉で、#{form_data.message}に関連したツンデレ風の言葉を生成してください。"
-    # ダミーの生成結果を返します
-    'これは生成されたツンデレ言葉の例です'
+
+    response = client.chat(
+      parameters: {
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'あなたはツンデレ言葉で回答してください' },
+          { role: 'user', content: prompt }
+        ],
+        temperature: 0.7
+      }
+    )
+
+    # レスポンスから生成されたテキストを取得
+    response.dig('choices', 0, 'message', 'content')
+  rescue StandardError => e
+    Rails.logger.error "OpenAI APIリクエスト中にエラーが発生しました: #{e.message}"
+    'エラーが発生しました。再試行してください。'
   end
 end

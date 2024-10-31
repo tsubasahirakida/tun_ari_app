@@ -75,6 +75,7 @@ gem 'avo'
 gem 'carrierwave'
 gem 'config'
 gem 'dotenv-rails'
+gem 'enum_help'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pry-rails'
@@ -82,15 +83,17 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'ridgepole'
 gem 'sorcery'
-gem 'enum_help'
 
-#サイトマップの作成・更新
+# サイトマップの作成・更新
+gem 'aws-sdk'
 gem 'sitemap_generator'
 gem 'whenever'
-gem 'aws-sdk'
 
-#メタタグの設定
+# メタタグの設定
 gem 'meta-tags'
 
-#ページネーション
+# ページネーション
 gem 'kaminari'
+
+# OpenAI
+gem 'ruby-openai'
