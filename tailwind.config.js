@@ -3,14 +3,16 @@ module.exports = {
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
+    './app/javascript/**/*.js',
+    './node_modules/flowbite/**/*.js'
   ],
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
-    require("daisyui")
+    require('daisyui'),
+    require('flowbite/plugin')
   ],
   theme: {
     extend: {
