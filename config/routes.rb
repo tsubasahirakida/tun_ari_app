@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'template_set_edit'
       get 'ai_boosting'
       get 'tundere_boosting'
+      post 'generate_ai', to: 'generate_ai#create'
     end
     member do
       patch 'status_update'
