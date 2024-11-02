@@ -66,8 +66,14 @@
     const generateFetchButton = document.getElementById("generateFetchButton");
     const form = document.getElementById("generateAiForm");
     const modalLoading = document.getElementById("modal-loading");
+    const closeModal = document.getElementById("closeModal");
 
     let modal_recipient = "";
+
+    // モーダルの閉じるボタンで非表示
+    closeModal.addEventListener("click", function() {
+      generateModal.style.display = "none";
+    });
 
     generateFetchButton.addEventListener("click", async function(event) {
       event.preventDefault(); // 通常のフォーム送信を防ぐ

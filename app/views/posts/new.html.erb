@@ -41,17 +41,11 @@
     document.addEventListener("turbo:load", function() {
       const generateButton = document.getElementById("generateAiButton");
       const generateModal = document.getElementById("generateAiModal");
-      const closeModal = document.getElementById("closeModal");
 
       // ボタン押下でモーダル表示
       generateButton.addEventListener("click", function(event) {
         event.preventDefault(); // デフォルトのリンク動作を無効化
         generateModal.style.display = "block";
-      });
-
-      // モーダルの閉じるボタンで非表示
-      closeModal.addEventListener("click", function() {
-        generateModal.style.display = "none";
       });
     });
   </script>
