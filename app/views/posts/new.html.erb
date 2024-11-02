@@ -32,12 +32,13 @@
       <% end %>
       <!-- AIで自動生成するボタン -->
       <button id='generateAiButton' class='w-full btn btn-outline btn-primary my-1' width='400'>AIで自動生成する</button>
-      <!-- AI自動生成モーダル -->
+    </div>
+    <div class="container mx-auto flex flex-col my-3 justify-center items-center">
       <%= render 'generate_ai_modal' %>
     </div>
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("turbo:load", function() {
       const generateButton = document.getElementById("generateAiButton");
       const generateModal = document.getElementById("generateAiModal");
       const closeModal = document.getElementById("closeModal");
@@ -51,13 +52,6 @@
       // モーダルの閉じるボタンで非表示
       closeModal.addEventListener("click", function() {
         generateModal.style.display = "none";
-      });
-
-      // モーダル外クリックで非表示
-      window.addEventListener("click", function(event) {
-        if (event.target === generateModal) {
-          generateModal.style.display = "none";
-        }
       });
     });
   </script>
