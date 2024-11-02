@@ -28,7 +28,6 @@ class GenerateAiController < ApplicationController
   # OpenAI APIの呼び出し処理
   def call_openai_api(form_data)
     client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
-    binding.pry
     # プロンプトを生成
     prompt = "#{form_data.recipient}に対する#{form_data.tone}な言葉で、#{form_data.message}に関連したツンデレ風の言葉を生成してください。"
 
