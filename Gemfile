@@ -97,5 +97,3 @@ gem 'kaminari'
 
 # OpenAI
 gem 'ruby-openai'
-
-gem "tailwindcss-rails", "~> 3.0"
