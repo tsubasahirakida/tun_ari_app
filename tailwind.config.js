@@ -1,6 +1,7 @@
 module.exports = {
   content: [
-    './app/views/**/*.html.erb',
+    './public/*.html',
+    './app/views/**/*',
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
@@ -11,8 +12,8 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
-    require('daisyui'),
-    require('flowbite/plugin')
+    require("daisyui"),
+    require("flowbite/plugin")
   ],
   theme: {
     extend: {
