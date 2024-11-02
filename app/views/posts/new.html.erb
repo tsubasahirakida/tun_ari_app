@@ -9,13 +9,13 @@
           <%= f.hidden_field :character_id, value: "#{@post.character_id}" %>
           <div class="flex flex-row mt-5">
             <p class="text-2xl pr-2">To:</p>
-            <%= f.text_field :sendername, class: 'form-control w-4/5'%>
+            <%= f.text_field :sendername, id:'post-sendername', class: 'form-control w-4/5'%>
             <p class="text-2xl pl-2">へ</p>
           </div>
           <%= image_tag "#{@post.character_id}.png", size: '400x300', class: 'my-1' %>
           <%= f.label :body, class: 'my-1' %>
           <div class="flex flex-row">
-            <%= f.text_area :body, class: 'form-control w-full', rows: 5 %>
+            <%= f.text_area :body, id: 'post-body', class: 'form-control w-full', rows: 5 %>
           </div>
         </div>
         <div class="flex flex-col">

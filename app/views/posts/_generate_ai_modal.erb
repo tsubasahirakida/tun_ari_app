@@ -65,12 +65,13 @@
     const generateModal = document.getElementById("generateAiModal");
     const generateFetchButton = document.getElementById("generateFetchButton");
     const form = document.getElementById("generateAiForm");
+    const modalLoading = document.getElementById("modal-loading");
 
     let modal_recipient = "";
 
     generateFetchButton.addEventListener("click", async function(event) {
       event.preventDefault(); // 通常のフォーム送信を防ぐ
-      document.getElementById("modal-loading").style.display = "";
+      modalLoading.style.display = "";
 
       // フォームデータの取得
       const formData = new FormData(form);
@@ -104,6 +105,30 @@
       } catch (error) {
         console.error("リクエストに失敗しました", error);
       }
+    });
+
+    // ボタン要素
+    const usePhraseButton = document.getElementById("usePhraseButton");
+    const regenerateButton = document.getElementById("regenerateButton");
+    const closeModalButton = document.getElementById("closeModalButton");
+
+    // 「この言葉を使う」ボタンの動作
+    usePhraseButton.addEventListener("click", function() {
+      document.getElementById("post-body").value = generatedText.value;
+      document.getElementById("post-sendername").value = modal_recipient;
+      generateModal.style.display = "none";
+    });
+
+    // 「再生成する」ボタンの動作
+    regenerateButton.addEventListener("click", function() {
+      modalOutput.style.display = "none";
+      modalInput.style.display = "";
+      modalLoading.style.display = "none";
+    });
+
+    // 「やっぱり自分で考える」ボタンの動作
+    closeModalButton.addEventListener("click", function() {
+      generateModal.style.display = "none";
     });
   });
 </script>
