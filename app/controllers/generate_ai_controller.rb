@@ -18,6 +18,15 @@ class GenerateAiController < ApplicationController
     end
   end
 
+  def check_ai_usage
+    # クラスメソッドで判定
+    if OpenAiDay.can_use_api?(current_user)
+      render json: { success: true }, status: :ok
+    else
+      render json: { success: false, message: 'API呼び出しは1日5回までです。' }, status: :ok
+    end
+  end
+
   private
 
   # フォームから送信されたパラメータを許可

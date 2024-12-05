@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get 'ai_boosting'
       get 'tundere_boosting'
       post 'generate_ai', to: 'generate_ai#create'
+      post 'check_ai_usage', to: 'generate_ai#check_ai_usage'
     end
     member do
       patch 'status_update'

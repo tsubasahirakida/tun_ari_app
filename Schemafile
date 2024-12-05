@@ -1,15 +1,15 @@
-create_table "users", force: :cascade do |t|
-  t.string "name", limit: 191, default: "", null: false
-  t.string "email", limit: 191, default: "", null: false, index: { unique: true }
-  t.string "crypted_password", null: false
-  t.string "salt", null: false
-  t.integer "role", null: false, default: 0
+create_table 'users', force: :cascade do |t|
+  t.string 'name', limit: 191, default: '', null: false
+  t.string 'email', limit: 191, default: '', null: false, index: { unique: true }
+  t.string 'crypted_password', null: false
+  t.string 'salt', null: false
+  t.integer 'role', null: false, default: 0
 
-  t.datetime "updated_at", null: false
-  t.datetime "created_at", null: false
+  t.datetime 'updated_at', null: false
+  t.datetime 'created_at', null: false
 end
 
-create_table "posts", force: :cascade do |t|
+create_table 'posts', force: :cascade do |t|
   t.string :sendername, limit: 15, null: false
   t.string :body, null: false
   t.string :post_image, null: false
@@ -17,34 +17,39 @@ create_table "posts", force: :cascade do |t|
   t.integer :status, null: false
   t.references :user, null: false
 
-  t.datetime "updated_at", null: false
-  t.datetime "created_at", null: false
+  t.datetime 'updated_at', null: false
+  t.datetime 'created_at', null: false
 end
 
-create_table "post_body_templates", force: :cascade do |t|
+create_table 'post_body_templates', force: :cascade do |t|
   t.string :title, null: false
   t.string :body, null: false
 
-  t.datetime "updated_at", null: false
-  t.datetime "created_at", null: false
+  t.datetime 'updated_at', null: false
+  t.datetime 'created_at', null: false
 end
 
-create_table "actions", force: :cascade do |t|
+create_table 'actions', force: :cascade do |t|
   t.references :user, null: false
   t.references :post, null: false
   t.string :type, null: false
 
-  t.datetime "updated_at", null: false
-  t.datetime "created_at", null: false
+  t.datetime 'updated_at', null: false
+  t.datetime 'created_at', null: false
 end
 
-create_table "authentications", force: :cascade do |t|
+create_table 'authentications', force: :cascade do |t|
   t.integer :user_id, null: false
   t.string :provider, :uid, null: false
 
-  t.datetime "updated_at", null: false
-  t.datetime "created_at", null: false
+  t.datetime 'updated_at', null: false
+  t.datetime 'created_at', null: false
 
   add_index :authentications, [:provider, :uid]
   add_index :authentications, :user_id
+end
+
+create_table 'open_ai_days', force: :cascade do |t|
+  t.references :user, null: false, foreign_key: true
+  t.timestamps
 end

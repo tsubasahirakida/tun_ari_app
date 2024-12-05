@@ -127,9 +127,13 @@
 
     // 「再生成する」ボタンの動作
     regenerateButton.addEventListener("click", function() {
-      modalOutput.style.display = "none";
-      modalInput.style.display = "";
-      modalLoading.style.display = "none";
+      ai_usage_count().then(result => {
+        if (result === true) {
+          modalOutput.style.display = "none";
+          modalInput.style.display = "";
+          modalLoading.style.display = "none";
+        }
+      });
     });
 
     // 「やっぱり自分で考える」ボタンの動作
