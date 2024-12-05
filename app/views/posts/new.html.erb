@@ -38,6 +38,32 @@
     </div>
   </div>
   <script>
+    function ai_usage_count(generateModal) {
+      return fetch('/posts/check_ai_usage', {
+        method: 'POST',
+        headers: {
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          if (generateModal) {
+            generateModal.style.display = "block";
+          }
+          return true
+        } else {
+          alert(data.message);
+          return false
+        }
+      })
+      .catch(error => {
+        console.error('エラー:', error);
+        alert('エラーが発生しました。');
+        return false
+      });
+    }
+
     document.addEventListener("turbo:load", function() {
       const generateButton = document.getElementById("generateAiButton");
       const generateModal = document.getElementById("generateAiModal");
@@ -45,7 +71,7 @@
       // ボタン押下でモーダル表示
       generateButton.addEventListener("click", function(event) {
         event.preventDefault(); // デフォルトのリンク動作を無効化
-        generateModal.style.display = "block";
+        ai_usage_count(generateModal);
       });
     });
   </script>
