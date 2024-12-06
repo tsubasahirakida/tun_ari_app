@@ -10,12 +10,18 @@ class GenerateAiController < ApplicationController
       # OpenAI APIを利用した言葉の生成処理
       generated_text = call_openai_api(@generate_ai_form)
 
+      # レコード追加処理
+      OpenAiDay.create!(user: current_user)
+
       # 成功時のレスポンス（例: JSONで返す場合）
       render json: { generated_text: }, status: :ok
     else
       # バリデーションエラー時のレスポンス
       render json: { errors: @generate_ai_form.errors.full_messages }, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordInvalid => e
+    # レコード保存失敗時のレスポンス
+    render json: { errors: ["データベースエラー: #{e.message}"] }, status: :internal_server_error
   end
 
   def check_ai_usage

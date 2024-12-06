@@ -7,11 +7,7 @@ class OpenAiDay < ApplicationRecord
     today = Date.today
     usage_count = where(user:, created_at: today.all_day).count
 
-    if usage_count < 5
-      create!(user:)
-      true
-    else
-      false
-    end
+    # 5回未満ならtrueを返す
+    usage_count < 5
   end
 end

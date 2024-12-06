@@ -39,6 +39,11 @@
   </div>
   <script>
     function ai_usage_count(generateModal) {
+      const modalInput = document.getElementById("modal-input");
+      const modalLoading = document.getElementById("modal-loading");
+      const modalOutput = document.getElementById("modal-output");
+      const generatedText = document.getElementById("generatedText");
+
       return fetch('/posts/check_ai_usage', {
         method: 'POST',
         headers: {
@@ -54,6 +59,13 @@
           return true
         } else {
           alert(data.message);
+          if (generateModal) {
+            generateModal.style.display = "block";
+            modalInput.style.display = "none";
+            modalLoading.style.display = "none";
+            modalOutput.style.display = "block";
+            generatedText.value = sessionStorage.getItem('open_ai_generated_text');
+          }
           return false
         }
       })
