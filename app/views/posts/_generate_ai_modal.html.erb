@@ -105,6 +105,9 @@
           modalInput.style.display = "none";
           modalOutput.style.display = "";
           adjustTextareaHeight();
+
+          // sessionStorageに生成文言を保持
+          sessionStorage.setItem('open_ai_generated_text', result.generated_text);
         } else {
           console.error("エラーが発生しました");
         }
