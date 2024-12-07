@@ -8,6 +8,6 @@ every 1.day, at: '8:00 am' do
   rake '-s sitemap:refresh'
 end
 
-every 1.day at: '12:00 am' do
+every 1.day, at: '12:00 am' do
   rake "db_cleanup:delete_open_ai_days"
 end

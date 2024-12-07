@@ -58,13 +58,17 @@
           }
           return true
         } else {
-          alert(data.message);
+          // 「AIで自動生成する」ボタンから実行する際は、最終的な生成内容を表示。
+          // 「再生成する」ボタン押下時にアラートを表示。
           if (generateModal) {
             generateModal.style.display = "block";
             modalInput.style.display = "none";
             modalLoading.style.display = "none";
             modalOutput.style.display = "block";
             generatedText.value = sessionStorage.getItem('open_ai_generated_text');
+            adjustTextareaHeight();
+          } else {
+            alert(data.message);
           }
           return false
         }
